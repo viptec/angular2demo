@@ -1,1 +1,24 @@
-<div>QuickCheck!</div>
+<div>QuickCheck!
+
+<div *ngIf="project">
+    we have project
+    {{project.projectId}}
+
+    {{project.quickcheck.modernizationTarget}}
+
+
+    <select id="usage" [(ngModel)]="project.quickcheck.modernizationTarget" placehoder="mod target">
+        <!--<option *ngFor="let usage of usages" [value]="usage">{{usage}}</option>-->
+        <option>USAGE</option>
+        <option>CO2</option>
+    </select>
+
+    
+    
+</div>
+
+<div *ngIf="!project">
+    we have <b>no</b> project
+    
+</div>
+</div>

@@ -14,6 +14,9 @@ export class StartComponent {
  
     constructor(private route: ActivatedRoute, public router: Router, private projectStartService: ProjectStartService) {
         
+        this.subscription = projectStartService.projectLoaded$.subscribe(p=>{
+            this.isStart = true;
+        });
     }
  
     start(){
@@ -24,7 +27,8 @@ export class StartComponent {
 
     restart(){
         console.log('restart');
-        this.isStart = !this.isStart;        
+        this.isStart = !this.isStart; 
+        this.projectStartService.restartProject();       
         this.router.navigate(['/']);
     }
 
