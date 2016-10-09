@@ -1,0 +1,24 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "outDir": "dist/",
+    "rootDir": "src/",
+    "inlineSources": true
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/index.d.ts",
+    "dist",
+    "config"
+  ]
+}

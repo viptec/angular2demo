@@ -1,0 +1,53 @@
+# Netbeans
+nb-configuration.xml
+nbactions.xml
+nbproject/
+ 
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+out
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
+ 
+rebel.xml
+ 
+# compiled output
+/frontend/dist
+/frontend/tmp
+ 
+# dependencies
+/frontend/node_modules
+/frontend/bower_components
+ 
+# IDEs and editors
+/.idea
+.vscode
+ 
+ 
+# misc
+/frontend/.sass-cache
+/frontend/connect.lock
+/frontend/coverage/*
+/frontend/libpeerconnection.log
+/frontend/npm-debug.log*
+/frontend/testem.log
+/frontend/typings
+ 
+ 
+#System Files
+.DS_Store
+Thumbs.db
+ 
+log.txt
