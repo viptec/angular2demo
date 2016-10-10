@@ -38,7 +38,12 @@ export class QuickCheckComponent {
             },{ onlySelf: true });
 
             if (!this.initialized){
-              this.myForm.valueChanges.subscribe(data => console.log('form changes', data));
+              this.myForm.valueChanges.subscribe(data => {
+                console.log('form changes', data);
+                if (this.submitted){
+                    this.save(data, true);
+                }
+              });
             }
         });
 
@@ -85,6 +90,8 @@ export class QuickCheckComponent {
 
        this.quickCheckService.calculateQuickCheck(this.project).subscribe(r=>{
           console.log(r);
+          this.quickCheckService.updateQuickCheck(r);
+          this.submitted = true;
        });
      }
 }

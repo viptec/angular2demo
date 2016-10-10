@@ -14,9 +14,15 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class QuickCheckService {
 
+    private quickCheckSource = new Subject<QuickCheckResult>();
+    quickChecked$ = this.quickCheckSource.asObservable();
+
     constructor(private http: Http) {
     }
 
+    updateQuickCheck(q : QuickCheckResult){
+        this.quickCheckSource.next(q);
+    }
 
     calculateQuickCheck(project: ProjectFile): Observable<QuickCheckResult> {
         console.log('calculateQuickCheck calling api', project);

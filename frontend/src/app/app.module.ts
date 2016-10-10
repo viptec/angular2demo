@@ -13,6 +13,7 @@ import { LoadProjectComponent }   from './start/loadproject.component';
 import { StartComponent }   from './start/start.component';
 import { EscComponent }   from './esc/esc.component';
 import { QuickCheckComponent }   from './esc/quickcheck.component';
+import { QuickCheckResultComponent }   from './esc/quickcheckresult.component';
 
 
 // services
@@ -36,7 +37,9 @@ import { KeysPipe } from './util/enumpipe';
                     LoadProjectComponent,
                     StartComponent,
                     EscComponent,
-                    QuickCheckComponent,KeysPipe
+                    QuickCheckComponent,
+                    QuickCheckResultComponent,
+                    KeysPipe
                 ],
   providers: [      ProjectStartService, 
                     QuickCheckService,

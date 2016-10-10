@@ -14,6 +14,15 @@ Demo1
     </div>			
 
     Debug: project {{project.projectId}}
-   <quickcheck [project]="project"></quickcheck>
-   <esc></esc>
+    <div class="{{showQuickCheck? 'visible':'hidden'}}" >
+        <quickcheck [project]="project"></quickcheck>
+    </div>
+   
+    <div class="{{showQuickCheckResult? 'visible':'hidden'}}">
+        <quickcheck-result></quickcheck-result>
+    </div>
+
+    <div class="{{showESC? 'visible':'hidden'}}">
+        <esc></esc>
+    </div>
 </div>
