@@ -6,13 +6,38 @@
 
     {{project.quickcheck.modernizationTarget}}
 
+<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+        <label>Ziel</label>
+        
+        <select id="usage"  placehoder="mod target" formControlName="modernizationTarget">        
+            <option *ngFor="let usage of usages | keys" [value]="usage.value">{{usage.value}}</option>
+        </select>
 
-    <select id="usage" [(ngModel)]="project.quickcheck.modernizationTarget" placehoder="mod target">
-        <!--<option *ngFor="let usage of usages" [value]="usage">{{usage}}</option>-->
-        <option>USAGE</option>
-        <option>CO2</option>
-    </select>
+        <label>includeBuildingModernization</label>
+        <input type="checkbox" formControlName="includeBuildingModernization"/>
 
+        <button type="submit">Submit</button>
+</form>
+
+    <!--
+    [(ngModel)]="project.quickcheck.modernizationTarget"
+    -->
+<!--
+<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+
+    <div formGroupName="quickcheck">
+        <label>Ziel</label>
+        
+        <select id="usage"  placehoder="mod target" formControlName="modernizationTarget">        
+            <option *ngFor="let usage of usages | keys" [value]="usage.value">{{usage.value}}</option>
+        </select>
+    </div>
+
+   
+    <button type="submit">Submit</button>
+
+</form>
+-->
     
     
 </div>

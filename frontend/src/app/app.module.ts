@@ -7,12 +7,20 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { routing } from './app.routing';
 
 import { AppComponent }   from './app.component';
+
+// app sub components:
 import { LoadProjectComponent }   from './start/loadproject.component';
 import { StartComponent }   from './start/start.component';
-import { ProjectStartService }   from './start/start.service';
-
 import { EscComponent }   from './esc/esc.component';
 import { QuickCheckComponent }   from './esc/quickcheck.component';
+
+
+// services
+import { ProjectStartService }   from './start/start.service';
+import { QuickCheckService } from './service/quickcheck.service';
+
+// utils
+import { KeysPipe } from './util/enumpipe';
 
 @NgModule({
   imports:      [ 
@@ -28,10 +36,11 @@ import { QuickCheckComponent }   from './esc/quickcheck.component';
                     LoadProjectComponent,
                     StartComponent,
                     EscComponent,
-                    QuickCheckComponent
+                    QuickCheckComponent,KeysPipe
                 ],
-  providers: [ProjectStartService, 
-              {provide: LocationStrategy, useClass: HashLocationStrategy}                    
+  providers: [      ProjectStartService, 
+                    QuickCheckService,
+                    {provide: LocationStrategy, useClass: HashLocationStrategy}                    
                 ],
   bootstrap:    [ AppComponent ]
 })
