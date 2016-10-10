@@ -17,10 +17,12 @@ export class ProjectStartService {
     private projectLoadSource = new Subject<ProjectFile>();
     private projectCreateSource = new Subject<string>();
     private projectRestartSource = new Subject<string>();
+    private projectESCStartSource = new Subject<string>();
 
     projectLoaded$ = this.projectLoadSource.asObservable();
     projectCreated$ = this.projectCreateSource.asObservable();
     projectRestarted$ = this.projectRestartSource.asObservable();
+    projectESCStarted$ = this.projectESCStartSource.asObservable();
 
     constructor(private http: Http) {
     }
@@ -46,6 +48,12 @@ export class ProjectStartService {
     restartProject(){
         this.projectRestartSource.next('not initialized yet');
     }
+
+    startESC(){
+        this.projectESCStartSource.next('start');
+    }
+
+    // misc backend calls
 
     createProjectId(): Observable<ProjectIdResult> {
         console.log('create project id calling api');

@@ -1,4 +1,8 @@
-<div>
+<div class="jumbotron">
+    <div class="container">
+        <h1 i18n="esc.jumbo.header">esc.jumbo.header</h1>
+        <div i18n>esc.jumbo.subheader</div>
+    </div>
     <button id="start" *ngIf="!isStart" (click)="start()">Start</button>
     <button id="restart" *ngIf="isStart" (click)="restart()">Restart</button>
 </div>

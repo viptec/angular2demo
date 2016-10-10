@@ -23,6 +23,8 @@ import { QuickCheckService } from './service/quickcheck.service';
 // utils
 import { KeysPipe } from './util/enumpipe';
 
+
+
 @NgModule({
   imports:      [ 
                     BrowserModule,
@@ -43,7 +45,7 @@ import { KeysPipe } from './util/enumpipe';
                 ],
   providers: [      ProjectStartService, 
                     QuickCheckService,
-                    {provide: LocationStrategy, useClass: HashLocationStrategy}                    
+                    {provide: LocationStrategy, useClass: HashLocationStrategy}                                        
                 ],
   bootstrap:    [ AppComponent ]
 })

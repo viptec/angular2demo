@@ -5,7 +5,7 @@ import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
     selector: 'start',
-    templateUrl: './app/start/start.component.html'
+    templateUrl: '../../app/start/start.component.html'
 })
 export class StartComponent {
  

@@ -9,7 +9,7 @@ import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
     selector: 'quickcheck',
-    templateUrl: './app/esc/quickcheck.component.html'
+    templateUrl: '../../app/esc/quickcheck.component.html'
 })
 export class QuickCheckComponent {
 

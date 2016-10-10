@@ -9,7 +9,7 @@ import { Subscription }   from 'rxjs/Subscription';
  
 @Component({
     selector: 'nesc-app',
-    templateUrl: 'app/app.component.html'
+    templateUrl: '../app/app.component.html'
     
 })
 export class AppComponent {
@@ -23,6 +23,7 @@ export class AppComponent {
     subscription2: Subscription;
 
     subscriptionQuickCheckResult: Subscription;
+    subscriptionESCStartResult: Subscription;
 
     showQuickCheck : boolean = false;
     showQuickCheckResult : boolean = false;
@@ -49,6 +50,10 @@ export class AppComponent {
             this.showESC = false;
             this.showModernization = false;
         });
+
+        this.subscriptionESCStartResult = projectStartService.projectESCStarted$.subscribe(p=>{            
+            this.showESC = true;
+        });
     }
     ngOnInit() {
         this.initEmptyProject();
@@ -58,6 +63,8 @@ export class AppComponent {
         // prevent memory leak when component destroyed
         this.subscription.unsubscribe();    
         this.subscription2.unsubscribe();
+        this.subscriptionQuickCheckResult.unsubscribe();
+        this.subscriptionESCStartResult.unsubscribe();
     }
 
     initEmptyProject(){

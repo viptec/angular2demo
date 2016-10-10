@@ -1,1 +1,13 @@
-<div>ESC</div>
+<div>ESC
+
+    {{project.quickcheck.modernizationTarget}}
+
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+        <label i18n>postalCode</label>
+        <input type="text" formControlName="postalCode"/>
+
+        <label i18n>buildingYearOfConstruction</label>
+        <input type="text" formControlName="buildingYearOfConstruction"/>
+
+    </form>
+</div>
