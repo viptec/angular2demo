@@ -1,8 +1,19 @@
 <div class="jumbotron">
     <div class="container">
-        <h1 i18n="esc.jumbo.header">esc.jumbo.header</h1>
-        <div i18n>esc.jumbo.subheader</div>
+        
+        <h1>{{ 'esc.jumbo.header' | translate }}</h1>
+        <div>{{ 'esc.jumbo.subheader' | translate }}</div>
     </div>
+
+{{supportedLangs}}
+    <div class="btn-group">
+        <button *ngFor="let lang of supportedLangs"
+        (click)="selectLang(lang.value)"
+        class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
+        {{ lang.display }}
+        </button>
+    </div>
+
     <button id="start" *ngIf="!isStart" (click)="start()">Start</button>
     <button id="restart" *ngIf="isStart" (click)="restart()">Restart</button>
 </div>

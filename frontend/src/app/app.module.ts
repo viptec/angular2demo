@@ -22,8 +22,9 @@ import { QuickCheckService } from './service/quickcheck.service';
 
 // utils
 import { KeysPipe } from './util/enumpipe';
-
-
+import { TranslateService }   from './service/translate.service';
+import { TRANSLATION_PROVIDERS} from './service/translations';
+import { TranslatePipe } from './util/translate.pipe';
 
 @NgModule({
   imports:      [ 
@@ -41,10 +42,13 @@ import { KeysPipe } from './util/enumpipe';
                     EscComponent,
                     QuickCheckComponent,
                     QuickCheckResultComponent,
-                    KeysPipe
+                    KeysPipe,
+                    TranslatePipe
                 ],
   providers: [      ProjectStartService, 
                     QuickCheckService,
+                    TRANSLATION_PROVIDERS,
+                    TranslateService,
                     {provide: LocationStrategy, useClass: HashLocationStrategy}                                        
                 ],
   bootstrap:    [ AppComponent ]

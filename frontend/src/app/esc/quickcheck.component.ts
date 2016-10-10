@@ -4,6 +4,7 @@ import { ProjectFile, QuickCheck, ModernizationTarget, EnergySource } from '../e
 import { QuickCheckService } from '../service/quickcheck.service';
 import { ProjectStartService} from '../start/start.service';
 import { Subscription }   from 'rxjs/Subscription';
+import 'rxjs/add/operator/debounceTime';
 
 
 
@@ -22,9 +23,10 @@ export class QuickCheckComponent {
 
      public myForm: FormGroup;
      public submitted: boolean;
-     initialized : false;
+     initialized : boolean;
      public events: any[] = [];
      subscription: Subscription;
+
 
      constructor(private _fb: FormBuilder, private quickCheckService: QuickCheckService, private projectStartService: ProjectStartService) {
 
@@ -38,12 +40,13 @@ export class QuickCheckComponent {
             },{ onlySelf: true });
 
             if (!this.initialized){
-              this.myForm.valueChanges.subscribe(data => {
+              this.myForm.valueChanges.debounceTime(400).subscribe(data => {
                 console.log('form changes', data);
                 if (this.submitted){
                     this.save(data, true);
                 }
               });
+              this.initialized = true;
             }
         });
 
@@ -92,6 +95,7 @@ export class QuickCheckComponent {
           console.log(r);
           this.quickCheckService.updateQuickCheck(r);
           this.submitted = true;
+          this.projectStartService.saveProject(this.project);
        });
      }
 }

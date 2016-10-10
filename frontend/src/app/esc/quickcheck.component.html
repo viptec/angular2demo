@@ -7,10 +7,10 @@
     {{project.quickcheck.modernizationTarget}}
 
 <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
-        <label>Ziel</label>
+        <label>{{ 'quickcheck.question.goals' | translate }}</label>
         
         <select id="usage"  placehoder="mod target" formControlName="modernizationTarget">        
-            <option *ngFor="let usage of usages | keys" [value]="usage.value">{{usage.value}}</option>
+            <option *ngFor="let usage of usages | keys" [value]="usage.value">{{'quickcheck.goal.' + usage.value | translate}}</option>
         </select>
 
         <label>includeBuildingModernization</label>

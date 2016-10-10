@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectStartService} from './start.service';
+import { TranslateService } from '../service/translate.service';
 import { Subscription }   from 'rxjs/Subscription';
 
 @Component({
@@ -9,10 +10,11 @@ import { Subscription }   from 'rxjs/Subscription';
 })
 export class StartComponent {
  
+    public supportedLangs : any[];
     isStart : boolean;
     subscription: Subscription;
  
-    constructor(private route: ActivatedRoute, public router: Router, private projectStartService: ProjectStartService) {
+    constructor(private route: ActivatedRoute, public router: Router, private projectStartService: ProjectStartService, private translateService: TranslateService) {
         
         this.subscription = projectStartService.projectLoaded$.subscribe(p=>{
             this.isStart = true;
@@ -30,6 +32,23 @@ export class StartComponent {
         this.isStart = !this.isStart; 
         this.projectStartService.restartProject();       
         this.router.navigate(['/']);
+    }
+
+    selectLang(lang: string){
+        this.translateService.use(lang);
+    }
+
+     isCurrentLang(lang: string) {
+      return lang === this.translateService.currentLang;
+    }
+
+    ngOnInit(){
+        this.supportedLangs = [
+            {display: 'Deutsch', value:'de'},
+            {display: 'English', value:'en'}
+        ];
+
+        this.selectLang('de');
     }
 
 

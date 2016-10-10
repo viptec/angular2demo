@@ -18,7 +18,7 @@ export class EscComponent {
     project: ProjectFile;
     public myForm: FormGroup;
     public submitted: boolean;
-    initialized : false;
+    initialized : boolean;
 
     subscription: Subscription;
 
@@ -32,6 +32,16 @@ export class EscComponent {
               buildingYearOfConstruction : this.project.building.buildingYearOfConstruction
               
             },{ onlySelf: true });
+
+            if (!this.initialized){
+              this.myForm.valueChanges.debounceTime(400).subscribe(data => {
+                console.log('form changes', data);
+                if (this.submitted){
+                    this.save(data, true);
+                }
+              });
+              this.initialized = true;
+            }
         });
 
         // init form
@@ -44,6 +54,9 @@ export class EscComponent {
 
     save(model: ESCForm, isValid: boolean){
        console.log('saving ', model, isValid);
+
+       // put in then handler of service:
+       this.submitted = true;
     }
     ngOnDestroy() {
         // prevent memory leak when component destroyed

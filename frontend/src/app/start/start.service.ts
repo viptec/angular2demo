@@ -45,6 +45,12 @@ export class ProjectStartService {
         
     }
 
+    saveProject(project: ProjectFile){
+        this.saveProjectToBackend(project).subscribe(p=>{
+            console.log('project saved');
+        });
+    }
+
     restartProject(){
         this.projectRestartSource.next('not initialized yet');
     }
@@ -75,6 +81,18 @@ export class ProjectStartService {
             console.log(res);
             return res.json();
         });
+    }
+
+    saveProjectToBackend(project: ProjectFile) : Observable<string> {
+        // storeProject
+        let headers = new Headers({'Content-Type':'application/json'});
+        let options = new RequestOptions({ headers: headers }); 
+
+        return this.http.post('http://localhost:9000/api/storeProject', JSON.stringify(project), options).map(res => {
+            console.log(res);
+            return res.json();
+        });
+
     }
 
 
