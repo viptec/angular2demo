@@ -1,0 +1,11 @@
+<div class="{{escResult? 'visible':'hidden'}}">
+    <div *ngIf="escResult">
+    mods
+    visible: {{modVisible}}
+    {{escResult.simulationResult | json}}
+
+    <button id="modouterwall" (click)="modernize('outerWall')">modouterwall</button>
+    </div>
+    <modouterwall></modouterwall>
+    <savings mode="global"></savings>
+</div>

@@ -25,7 +25,9 @@ export class QuickCheckComponent {
      public submitted: boolean;
      initialized : boolean;
      public events: any[] = [];
+
      subscription: Subscription;
+     subscriptionRestart: Subscription;
 
 
      constructor(private _fb: FormBuilder, private quickCheckService: QuickCheckService, private projectStartService: ProjectStartService) {
@@ -49,6 +51,13 @@ export class QuickCheckComponent {
               this.initialized = true;
             }
         });
+
+        this.subscriptionRestart = projectStartService.projectRestarted$.subscribe(p => {
+            console.log('project restarted...');
+            this.submitted = false;
+        });
+
+        
 
        this.usages = Object.keys(this.modTargets).filter(enumMember=>{
          var isValueProperty = parseInt(enumMember, 10) >= 0;                 
@@ -84,7 +93,8 @@ export class QuickCheckComponent {
 
      ngOnDestroy() {
         // prevent memory leak when component destroyed
-        this.subscription.unsubscribe();    
+        this.subscription.unsubscribe(); 
+        this.subscriptionRestart.unsubscribe();   
      }
 
      save(model: QuickCheckForm, isValid: boolean){

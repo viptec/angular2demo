@@ -3,10 +3,8 @@ import { Subject }    from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Router, CanActivate, Params } from '@angular/router';
 
 import { ProjectFile,ModernizationTarget,EnergySource } from '../entity/ProjectFile';
-
 
 
 import 'rxjs/add/operator/map'

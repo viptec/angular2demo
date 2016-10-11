@@ -20,7 +20,7 @@ export class AppComponent {
     project: ProjectFile;
 
     subscription: Subscription;
-    subscription2: Subscription;
+    subscriptionRestart: Subscription;
 
     subscriptionQuickCheckResult: Subscription;
     subscriptionESCStartResult: Subscription;
@@ -42,7 +42,7 @@ export class AppComponent {
             this.project = p;                
         });
         
-        this.subscription2 = projectStartService.projectRestarted$.subscribe(p => {
+        this.subscriptionRestart = projectStartService.projectRestarted$.subscribe(p => {
             console.log('project restarted...');
             this.initEmptyProject();
             this.showQuickCheck = false;
@@ -62,7 +62,7 @@ export class AppComponent {
     ngOnDestroy() {
         // prevent memory leak when component destroyed
         this.subscription.unsubscribe();    
-        this.subscription2.unsubscribe();
+        this.subscriptionRestart.unsubscribe();
         this.subscriptionQuickCheckResult.unsubscribe();
         this.subscriptionESCStartResult.unsubscribe();
     }

@@ -3,6 +3,7 @@ export class ProjectFile {
     quickcheck: QuickCheck;    
     building: Building;
     installation: Installation;
+    buildingMods : BuildingMods;
 }
 
 
@@ -56,6 +57,15 @@ export class Installation {
     nominalPower : number;
     exhaustGasLosses : number;
     isLowTemperature : boolean;
+}
+
+
+export class BuildingMods {
+    public roofInsulation : number;
+    public upperFloorInsulation : number;
+    public wallInsulation : number;
+    public cellarInsulation : number;
+    public windowTypeId : number;
 }
 
 export enum ModernizationTarget {

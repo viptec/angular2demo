@@ -4,6 +4,8 @@ import { Validators, FormBuilder, FormGroup }   from '@angular/forms';
 
 import { ProjectFile, BuildingType, BuildingLocation, RoofType } from '../entity/ProjectFile';
 import { ProjectStartService} from '../start/start.service';
+import { EscService,EscResultWrapper } from '../service/esc.service';
+
 
 import { Subscription }   from 'rxjs/Subscription';
  
@@ -23,7 +25,7 @@ export class EscComponent {
     subscription: Subscription;
 
 
-    constructor(private _fb: FormBuilder, private projectStartService: ProjectStartService) {
+    constructor(private _fb: FormBuilder, private projectStartService: ProjectStartService, private escService : EscService) {
         this.subscription = projectStartService.projectESCStarted$.subscribe(p=>{
             console.log('got esc start event',p, this.project);
 
@@ -51,12 +53,24 @@ export class EscComponent {
         });
     }
 
-
+    /* save form changes: recalcuate and store project file */
     save(model: ESCForm, isValid: boolean){
        console.log('saving ', model, isValid);
 
-       // put in then handler of service:
-       this.submitted = true;
+       this.project.building.postalCode = model.postalCode;
+       this.project.building.buildingYearOfConstruction = model.buildingYearOfConstruction;
+
+       this.escService.calculateEsc(this.project).subscribe(r=>{
+           console.log("calc response ", r);
+           this.submitted = true;
+           let escWrapper = new EscResultWrapper();
+           escWrapper.escResult = r;
+           escWrapper.mode = "global";
+           this.escService.updateEsc(escWrapper);
+           this.projectStartService.saveProject(this.project);
+       });
+       
+       
     }
     ngOnDestroy() {
         // prevent memory leak when component destroyed

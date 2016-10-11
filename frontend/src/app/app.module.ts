@@ -14,11 +14,16 @@ import { StartComponent }   from './start/start.component';
 import { EscComponent }   from './esc/esc.component';
 import { QuickCheckComponent }   from './esc/quickcheck.component';
 import { QuickCheckResultComponent }   from './esc/quickcheckresult.component';
+import { ModernizationComponent } from './esc/modernization.component';
+import { ModOuterWallComponent } from './esc/modOuterWall.component' ;
+import { SavingsComponent } from './esc/savings.component';
 
 
 // services
 import { ProjectStartService }   from './start/start.service';
 import { QuickCheckService } from './service/quickcheck.service';
+import { EscService } from './service/esc.service';
+import { ModernizationService } from './service/modernization.service';
 
 // utils
 import { KeysPipe } from './util/enumpipe';
@@ -42,11 +47,16 @@ import { TranslatePipe } from './util/translate.pipe';
                     EscComponent,
                     QuickCheckComponent,
                     QuickCheckResultComponent,
+                    ModernizationComponent,
+                    ModOuterWallComponent,
+                    SavingsComponent,
                     KeysPipe,
                     TranslatePipe
                 ],
   providers: [      ProjectStartService, 
                     QuickCheckService,
+                    EscService,
+                    ModernizationService,
                     TRANSLATION_PROVIDERS,
                     TranslateService,
                     {provide: LocationStrategy, useClass: HashLocationStrategy}                                        
