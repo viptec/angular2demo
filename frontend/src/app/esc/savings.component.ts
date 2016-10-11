@@ -24,8 +24,10 @@ export class SavingsComponent {
 
     constructor(private projectStartService: ProjectStartService, private escService: EscService){
         this.subscription = escService.escUpdateded$.subscribe(r => {
-            console.log('SavingsComponent escUpdated',r);
-            this.escResult = r.escResult;
+            if (this.mode === r.mode) {
+                console.log('SavingsComponent escUpdated',this.mode, r);
+                this.escResult = r.escResult;
+            }
         });
 
         this.subscriptionRestart = projectStartService.projectRestarted$.subscribe(p => {            

@@ -29,7 +29,9 @@ export class ModernizationComponent {
 
         this.subscription = escService.escUpdateded$.subscribe(r => {
             console.log('ModernizationComponent escUpdated',r);
-            this.escResult = r.escResult;
+            if ("global" === r.mode) {
+                this.escResult = r.escResult;
+            }
         });
 
         this.subscriptionRestart = projectStartService.projectRestarted$.subscribe(p => {            

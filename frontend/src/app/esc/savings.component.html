@@ -1,5 +1,6 @@
-<div *ngIf="escResult">
-    savings    
-    {{ mode }}
-    {{ escResult.savingsResult | json}}
+<div>
+    savings {{ mode }}
+    <div *ngIf="escResult">
+        {{ escResult.savingsResult | json}}
+    </div>
 </div>

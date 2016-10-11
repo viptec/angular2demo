@@ -4,6 +4,7 @@ export class ProjectFile {
     building: Building;
     installation: Installation;
     buildingMods : BuildingMods;
+    finance : Finance;
 }
 
 
@@ -57,6 +58,22 @@ export class Installation {
     nominalPower : number;
     exhaustGasLosses : number;
     isLowTemperature : boolean;
+}
+
+export class Finance {
+    public energyCostIncrease : number;
+    public totalInvestments : number;
+    public foreignCapital : number;
+    public foreignCapitalAnnuity : number;
+    public foreignCaptialInterestRate : number;
+    public numberOfYears : number;
+    public ownCapital : number;
+    public roofInsulation : number;
+    public upperFloorInsulation : number;
+    public wallInsulation : number;
+    public cellarInsulation : number;
+    public installation : number;
+    public window : number;
 }
 
 

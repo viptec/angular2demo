@@ -59,7 +59,8 @@ export class EscComponent {
 
        this.project.building.postalCode = model.postalCode;
        this.project.building.buildingYearOfConstruction = model.buildingYearOfConstruction;
-
+       // TODO: copy other params
+       
        this.escService.calculateEsc(this.project).subscribe(r=>{
            console.log("calc response ", r);
            this.submitted = true;
