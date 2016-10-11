@@ -1,19 +1,19 @@
-<div>
-Demo1
 
+<div>
+
+<navmenu></navmenu>
 <start>starting...</start>
+<!--
  <li [routerLinkActive]="['active']">
                     <a [routerLink]="['/projects/123']">Demo Component</a>
                 </li>
-				
+-->				
 				
 				
     <div class="container">
         <router-outlet></router-outlet>
-        <p>other stuff {{title}}<p>
     </div>			
 
-    Debug: project {{project.projectId}}
     <div class="{{showQuickCheck? 'visible':'hidden'}}" >
         <quickcheck [project]="project"></quickcheck>
     </div>

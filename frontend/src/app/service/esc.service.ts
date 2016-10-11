@@ -5,7 +5,7 @@ import { Observer } from 'rxjs/Observer';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { ProjectFile,ModernizationTarget,EnergySource } from '../entity/ProjectFile';
-
+import { ProjectStartService } from '../start/start.service';
 
 
 import 'rxjs/add/operator/map'
@@ -16,7 +16,7 @@ export class EscService {
     private escUpdateSource = new Subject<EscResultWrapper>();
     escUpdateded$ = this.escUpdateSource.asObservable();
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private projectStartService : ProjectStartService) {
     }
 
     calculateEsc(project: ProjectFile): Observable<EscResult> {
@@ -33,6 +33,19 @@ export class EscService {
     updateEsc(escResult: EscResultWrapper) {
         console.log('esc service updateESC', escResult);
         this.escUpdateSource.next(escResult);
+    }
+
+
+    recalcAndUpdateGlobalResult(project: ProjectFile, save: boolean = true){
+        this.calculateEsc(project).subscribe(r=>{
+            let escWrapper = new EscResultWrapper();
+            escWrapper.escResult = r;
+            escWrapper.mode = "global";
+            this.updateEsc(escWrapper);
+            if (save){
+                this.projectStartService.saveProject(project);
+            } 
+        });
     }
 }
 

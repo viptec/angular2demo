@@ -1,19 +1,30 @@
-<div class="jumbotron">
+<div id="bb-start" class="section-start">
     <div class="container">
-        
-        <h1>{{ 'esc.jumbo.header' | translate }}</h1>
-        <div>{{ 'esc.jumbo.subheader' | translate }}</div>
+        <div class="row">            
+            <div class="col-sm-6 hidden-xs">
+                <img src="http://test.check-energiesparen.de/images/header-haus.png">
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <h1>{{ 'esc.jumbo.header' | translate }}</h1>
+                <p>{{ 'esc.jumbo.subheader' | translate }}</p>
+                <a class="btn btn-vitorange btn-new-project" *ngIf="!isStart" (click)="start()">
+                    {{ 'esc.btn.start' | translate}}
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <a class="btn btn-vitorange btn-new-restart" *ngIf="isStart" (click)="restart()">
+                    {{ 'esc.btn.restart' | translate}}
+                    <i class="icon-repeat"></i>
+                </a>
+                 <div class="btn-group">
+                    <button *ngFor="let lang of supportedLangs"
+                    (click)="selectLang(lang.value)"
+                    class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
+                    {{ lang.display }}
+                        <img src="app/res/{{lang.img}}">
+                    </button>
+                </div>
+            </div>
+            
+        </div>
     </div>
-
-{{supportedLangs}}
-    <div class="btn-group">
-        <button *ngFor="let lang of supportedLangs"
-        (click)="selectLang(lang.value)"
-        class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)">
-        {{ lang.display }}
-        </button>
-    </div>
-
-    <button id="start" *ngIf="!isStart" (click)="start()">Start</button>
-    <button id="restart" *ngIf="isStart" (click)="restart()">Restart</button>
 </div>

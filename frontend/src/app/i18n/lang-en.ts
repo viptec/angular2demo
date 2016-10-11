@@ -1,11 +1,17 @@
 export const LANG_EN_NAME = 'en';
 
 export const LANG_EN_TRANS = {
-    'demo.key' : 'das ist nur ein Demo',
+'nav.quickcheck' : 'Quick-Check',
+    'nav.esc' : ' Gebäude-Check',
+    'nav.modernization' : 'Modernisierung',
+    'nav.report' : 'Projektbericht',
 'esc.jumbo.header' : 'Climate change at your home!',
 'esc.jumbo.subheader' : 'Ihr persönlicher Gebäude-Energie-Spar-Check',
 'esc.intro.description' : 'Der Gebäude-Energie-Spar-Check zeigt Ihnen in wenigen Schritten die Energie-Einspar-Potenziale Ihres Hauses auf. Egal, ob die Heizungsanlage, der energetische Gebäudezustand oder eine Kombination aus beidem berechnet werden soll. Das Verfahren ist vom TÜV Rheinland zertifiziert und ermöglicht Ihnen somit ein objektives Ergebnis. Der Gebäude-Energie-Spar-Check ist ein kostenloser Service von Viessmann.',
-'quickcheck.header.goals' : 'Ihre Ziele',
+'esc.btn.start' : 'Jetzt starten',
+'esc.btn.restart' : 'Neu starten',
+'quickcheck.title' : 'Quick-Check',
+'quickcheck.header.goals' : 'Your goal',
 'quickcheck.question.goals' : 'Welches Ziel beschreibt Ihre Situation am besten?',
 'quickcheck.goal.USAGE' : 'I would like to reduce my energy consumption.',
 'quickcheck.goal.CO2' : 'I want to to something for the environment and save Co2.',

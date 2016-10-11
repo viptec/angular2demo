@@ -38,14 +38,14 @@ export class StartComponent {
         this.translateService.use(lang);
     }
 
-     isCurrentLang(lang: string) {
+    isCurrentLang(lang: string) {
       return lang === this.translateService.currentLang;
     }
 
     ngOnInit(){
         this.supportedLangs = [
-            {display: 'Deutsch', value:'de'},
-            {display: 'English', value:'en'}
+            {display: 'Deutsch', value:'de', img: 'images/i18n/flag_germany.png'},
+            {display: 'English', value:'en', img: 'images/i18n/flag_usa.png'}
         ];
 
         this.selectLang('de');

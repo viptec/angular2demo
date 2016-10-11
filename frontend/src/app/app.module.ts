@@ -10,6 +10,7 @@ import { AppComponent }   from './app.component';
 
 // app sub components:
 import { LoadProjectComponent }   from './start/loadproject.component';
+import { NavComponent} from './start/nav.component';
 import { StartComponent }   from './start/start.component';
 import { EscComponent }   from './esc/esc.component';
 import { QuickCheckComponent }   from './esc/quickcheck.component';
@@ -43,6 +44,7 @@ import { TranslatePipe } from './util/translate.pipe';
   declarations: [ 
                     AppComponent,
                     LoadProjectComponent,
+                    NavComponent,
                     StartComponent,
                     EscComponent,
                     QuickCheckComponent,

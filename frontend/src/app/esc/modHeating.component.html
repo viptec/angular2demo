@@ -1,0 +1,22 @@
+<div class="{{isVisible? 'visible':'hidden'}}">
+    outer wall mods 
+    visible? {{isVisible}}
+
+   
+    <form [formGroup]="myForm" novalidate (ngSubmit)="preview(myForm.value, myForm.valid)">
+        <label>current</label>
+        <input type="text" formControlName="outerWallCurrent"/>
+
+        <label>future</label>
+        <input type="text" formControlName="outerWallFuture"/>
+
+        <label>investments</label>
+        <input type="text" formControlName="investments"/>
+
+        <!--<button type="submit">Submit</button>-->
+    </form>
+
+    <button id="modouterwall_close" (click)="closeDialog()">close</button>
+    <button id="modouterwall_apply" (click)="applyDialog()">apply</button>
+    <savings mode="outerWall"></savings>
+</div>

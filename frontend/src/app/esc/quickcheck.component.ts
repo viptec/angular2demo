@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup, FormControl }   from '@angular/form
 import { ProjectFile, QuickCheck, ModernizationTarget, EnergySource } from '../entity/ProjectFile'; 
 import { QuickCheckService } from '../service/quickcheck.service';
 import { ProjectStartService} from '../start/start.service';
+
 import { Subscription }   from 'rxjs/Subscription';
 import 'rxjs/add/operator/debounceTime';
 
@@ -105,7 +106,7 @@ export class QuickCheckComponent {
           console.log(r);
           this.quickCheckService.updateQuickCheck(r);
           this.submitted = true;
-          this.projectStartService.saveProject(this.project);
+          //this.projectStartService.saveProject(this.project);
        });
      }
 }
