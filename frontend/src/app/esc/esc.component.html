@@ -115,14 +115,182 @@
                         <!-- roofType -->
                         <div id="bb-gebaeude_dach" class="form-element">
                             <h3>{{ 'esc.question.roofType' | translate }}</h3>
+                            <div class="ui-radio-icon-group form-group">
+	
+                                <div [ngClass]="{'checked' : myForm.value.roofType === roofType.roofType, 'radio' : true}" *ngFor="let roofType of roofTypes">                                    
+                                    <label>
+                                        <input type="radio" [value]="roofType.roofType" formControlName="roofType">
+                                        <img src="http://test.check-energiesparen.de/{{roofType.img}}">
+                                        <span>{{ 'roofType.' + roofType.roofType | translate }}</span>
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <!-- hasHeatedRoof -->
+                        <div id="bb-dach_beheizt" class="form-element">
+                            <h3>{{ 'esc.question.hasHeatedRoof' | translate }}</h3>
+                            <div class="form-group">
+                                <div [ngClass]="{'checkbox ui-checkbox': true, 'checked': myForm.value.hasHeatedRoof === true}">                                       
+                                    <label class="label">
+                                        <input type="checkbox" formControlName="hasHeatedRoof"/>
+                                        {{ 'common.yes' | translate}}
+                                    </label>
+                                    
+                                </div>
+                             </div>
+                        </div>
+
+                        <!-- numberOfLevels -->
+                        <div id="bb-gebaeude_geschosse" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.numberOfLevels' | translate }}                                
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="ui-radio-icon-group form-group">
+	
+                                <div [ngClass]="{'checked' : myForm.value.numberOfLevels === 1, 'radio' : true}" >                                    
+                                    <label>
+                                        <input type="radio" [value]="1" formControlName="numberOfLevels">
+                                        <img src="http://test.check-energiesparen.de/images/gebaeude_geschosse_1.png">
+                                        <span>1</span>
+                                    </label>
+                                </div>
+
+                                <div [ngClass]="{'checked' : myForm.value.numberOfLevels === 2, 'radio' : true}" >                                    
+                                    <label>
+                                        <input type="radio" [value]="2" formControlName="numberOfLevels">
+                                        <img src="http://test.check-energiesparen.de/images/gebaeude_geschosse_2.png">
+                                        <span>2</span>
+                                    </label>
+                                </div>
+
+                                <div [ngClass]="{'checked' : myForm.value.numberOfLevels === 3, 'radio' : true}" >                                    
+                                    <label>
+                                        <input type="radio" [value]="3" formControlName="numberOfLevels">
+                                        <img src="http://test.check-energiesparen.de/images/gebaeude_geschosse_3.png">
+                                        <span>3</span>
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <!-- hasHeatedCellar -->
+                        <div id="bb-keller" class="form-element">
+                            <h3>{{ 'esc.question.hasHeatedCellar' | translate }}</h3>
+                            <div class="form-group">
+                                <div [ngClass]="{'checkbox ui-checkbox': true, 'checked': myForm.value.hasHeatedCellar === true}">                                       
+                                    <label class="label">
+                                        <input type="checkbox" formControlName="hasHeatedCellar"/>
+                                        {{ 'common.yes' | translate}}
+                                    </label>
+                                    
+                                </div>
+                             </div>
+                        </div>
+
+                        <!-- elected power consumption -->
+                        <div id="bb-stromverbrauch" class="form-element">
+                            <h3>{{ 'esc.question.electricPowerConsumption' | translate }}</h3> 
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3 col-md-2 col-sm-push-5 unit unit-m2 input-group">
+                                        <input class="form-control" type="number" formControlName="electricPowerConsumption" style="min-width: 100px;">
+                                        <span class="input-group-addon">{{ 'common.kwhPerYear' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>  
 
+            <!--heating installation -->
+            <div class="form-element-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h2>{{ 'esc.header.installation' | translate }}</h2>
+                    </div>
+                    <div class="col-sm-10">
+                        <!-- yearOfConstruction -->
+                        <div id="bb-anlage_baujahr" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.yearOfConstruction' | translate }}                                
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <select class="form-control" formControlName="yearOfConstruction">
+                                        <!--<option value="">Bitte wählen</option>-->
+                                        <option value="2010">2010 - heute</option>
+                                        <option value="2000">2000 - 2009</option>
+                                        <option value="1990">1990 - 1999</option>
+                                        <option value="1980">1980 - 1989</option>
+                                        <option value="1970">1970 - 1979</option>
+                                        <option value="1960">1960 - 1969</option>
+                                        <option value="1950">1950 - 1959</option>
+                                    </select>
+                                    {{ myForm.value.yearOfConstruction }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- installationType -->
+                        <div id="bb-anlage_kesseltyp" class="form-element">
+                            <h3>{{ 'esc.question.installationType' | translate }}</h3>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    TODO: filter by yearOfConstruction and energySource??
+                                    <select class="form-control" formControlName="installationType">
+                                         <option *ngFor="let inst of installationTypes | keys" [value]="inst.value">{{'installationType.' + inst.value | translate}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- nominalPower -->
+                        <div id="bb-anlage_nennwert_leistung" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.nominalPower' | translate }}                                
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-3 col-md-2 col-sm-push-5 unit unit-m2 input-group">
+                                        <input class="form-control" type="number" formControlName="nominalPower" style="min-width: 100px;">
+                                        <span class="input-group-addon">{{ 'common.kw' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
          
 
-            <button type="submit">Submit</button>
+            <div class="visible-activexxx">
+                    <div class="visible-xs">
+                        <button type="submit" class="btn btn-vitorange btn-lg btn-block btn-next-page">
+                            {{ 'esc.button.modernizeBuilding' | translate}}
+                            <i class="icon-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="row hidden-xs">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-vitorange btn-lg btn-next-page">
+                                {{ 'esc.button.modernizeBuilding' | translate}}
+                                <i class="icon-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+
+            
         </form>
     </div>
 </section>

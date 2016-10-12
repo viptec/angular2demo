@@ -49,6 +49,7 @@ export class Building {
     wallInsulation : number;
     cellarInsulation : number;
     buildingLocation : BuildingLocation;
+    electricPowerConsumption : number;
 }
 
 export class Installation {

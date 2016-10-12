@@ -1,3 +1,54 @@
+<section id="bb-modernisieren" class="section-modernisieren" style="display:block;">
+    <div class="container {{escResult? 'visible':'hidden'}}">
+        <div class="tab-bar btn-group">
+            <a data-target="#tab-modernisieren" role="tab" data-toggle="tab" class="btn btn-default btn-modernisieren active">
+                {{ 'escResult.tab.modernize' | translate}}
+            </a>
+            <a data-target="#tab-finanzieren"  role="tab" data-toggle="tab" class="btn btn-default btn-finanzieren">
+                {{ 'escResult.tab.finance' | translate}}
+            </a>
+            <a data-target="#tab-foerdermittel"  role="tab" data-toggle="tab" class="btn btn-default btn-foerderung">
+                {{ 'escResult.tab.funding' | translate}}
+            </a>
+            
+        </div>
+
+        <div class="tab-content">
+            <div id="tab-modernisieren" class="tab-pane active">
+                <div class="row">
+                    <div class="col-xs12 col-md-7">
+                        <h1>{{ 'modernize.header' | translate }}</h1>
+                        <p class="hidden-xs hidden-sm description">
+                            {{ 'modernize.subheader' | translate }}
+                        </p>
+                    </div>
+
+                    <div class="col-xs-12 col-md-5 sidebar-ct">
+                        <savings mode="global"></savings>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-finanzieren" class="tab-pane">
+                <div class="row">
+                    <div class="col-xs12 col-md-7">
+                        <h1>{{ 'modernize.header' | translate }}</h1>
+                        finance
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-foerdermittel" class="tab-pane">
+                <div class="row">
+                    <div class="col-xs12 col-md-7">
+                        <h1>{{ 'modernize.header' | translate }}</h1>
+                        funding
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="{{escResult? 'visible':'hidden'}}">
     <div *ngIf="escResult">
     mods
@@ -7,5 +58,5 @@
     <button id="modouterwall" (click)="modernize('outerWall')">modouterwall</button>
     </div>
     <modouterwall></modouterwall>
-    <savings mode="global"></savings>
+    
 </div>

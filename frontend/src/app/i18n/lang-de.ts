@@ -145,6 +145,7 @@ export const LANG_DE_TRANS = {
 'common.more' : 'mehr...',
 'common.persons' : 'Personen',
 'common.kwhPerYear' : 'kWh/Jahr',
+'common.kw' : 'kW',
 
 'validation.required.field' : 'Pflichtfeld',
 
