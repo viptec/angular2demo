@@ -1,10 +1,102 @@
-<div>
-QuickCheckResults
-<div *ngIf="quickCheckResult">
-    have results: {{quickCheckResult.costs}}
+<section id="bb-quickresult" class="section-quickresult" style="display:block;">
+    <div class="container" *ngIf="quickCheckResult">
+        <div class="row">
 
-{{ 'hello world' | translate | uppercase}}
-    <button (click)="start()">start esc</button>
-</div>
+            <!-- left side -->
+            <div class="col-sm-6">
+                <h1>{{'quickcheck.results.header.today' | translate}}</h1>
+                <span class="text-muted">{{ 'quickcheck.results.low' | translate }}</span>
 
-</div>
+                <ul class="list-unstyled indicator">
+                    <li class="current-haus" style="top: 72.619%; right: 9.58333%;">
+                        <span class="arrow-left"></span>
+                        <div>
+                            <span>Ihr Haus</span>
+                        </div>
+                    </li>
+                    <li class="indicator-1">
+                        <span class="arrow-right"></span>
+                        <div>
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="indicator-2">
+                        <span class="arrow-right"></span>
+                        <div>
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="indicator-3">
+                        <span class="arrow-right"></span>
+                        <div>
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="indicator-4">
+                        <span class="arrow-right"></span>
+                        <div>
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="indicator-5">
+                        <span class="arrow-right"></span>
+                        <div>
+                            <span></span>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <span class="text-muted">{{ 'quickcheck.results.high' | translate }}</span>
+
+
+                <p class="energieverbrauchs-kennwert">{{ 'quickcheck.results.energyCharacteristicValue.text' | translate:quickCheckResult.energyCharacteristicValue}} </p>
+            </div>
+
+            <!-- right side -->
+            <div class="col-sm-6">
+                <h1>{{'quickcheck.results.header.savings' | translate}}</h1>
+                <div class="row">
+                    <div class="col-xs-8"></div>
+                    <div class="col-xs-3 bis-zu">{{'quickcheck.results.savings.upTo' | translate}}</div>
+                </div>
+                <div class="row row-kosten">
+                    <div class="col-xs-8 caption">{{ 'savings.costs' | translate }}</div>
+                    <div class="col-xs-3 label-potential label-energie-kosten">{{quickCheckResult.costs}}%</div>
+                </div>
+                <div class="row row-verbrauch">
+                    <div class="col-xs-8 caption">{{ 'savings.consumption' | translate }}</div>
+                    <div class="col-xs-3 label-potential label-energie-verbrauch">{{quickCheckResult.consumption}}%</div>
+                </div>
+                <div class="row row-co2">
+                    <div class="col-xs-8 caption">{{ 'savings.co2' | translate }}</div>
+                    <div class="col-xs-3 label-potential label-energie-co2-emission">{{quickCheckResult.co2}}%</div>
+                </div>
+
+                <!-- text -->
+                <div class="einspar-text">
+                    <p>{{ 'quickcheck.results.text1' | translate:quickCheckResult.costs:quickCheckResult.consumption:quickCheckResult.co2}}</p>
+                    <p>{{ 'quickcheck.results.text.medium' | translate}}</p>
+                </div>
+                <div>
+                    <h3>{{ 'quickcheck.results.text.startEsc' | translate }}</h3>
+                    <p>{{ 'quickcheck.results.text.startEscNotes' | translate }}</p>
+
+                    <div class="visible-xs">
+                        <button class="btn btn-vitorange btn-lg btn-block btn-next-page" (click)="start()">
+                            {{ 'quickcheck.results.button.startEsc' | translate }}
+                            <i class="icon-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="hidden-xs">
+                        <button class="btn btn-vitorange btn-lg btn-next-page" (click)="start()">
+                            {{ 'quickcheck.results.button.startEsc' | translate }}
+                            <i class="icon-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

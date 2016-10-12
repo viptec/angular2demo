@@ -30,8 +30,19 @@ export const LANG_EN_TRANS = {
 'quickcheck.question.numberOfPersons' : 'Wie viele Personen wohnen im betreffenden Haushalt?',
 'quickcheck.question.currentConsumption' : 'Wie hoch ist der jährliche Energieverbrauch?',
 'quickcheck.button.showSavings' : 'Ihr Einsparpotential anzeigen',
+'quickcheck.results.header.today' : 'Ihr Gebäude heute',
+'quickcheck.results.header.savings' : 'Ihr geschätztes Einsparpotential',
+'quickcheck.results.low' : 'Geringer Handlungsbedarf',
+'quickcheck.results.high' : 'Großer Handlungsbedarf',
+'quickcheck.results.savings.upTo': 'bis zu:',
 'quickcheck.results.text1' : 'Durch eine energetische Modernisierung, beispielsweise mittels des Einbaus einer Wärmepumpe, können Sie ca. {{quickcheckResult.consumption}}% Ihres Heizenergieverbrauchs einsparen und senken Ihre Energiekosten um ca. {{quickcheckResult.costs}}%. Außerdem reduzieren Sie die CO₂-Emissionen um ca. {{quickcheckResult.co2}}%.',
-'quickcheck.results.text2' : 'Der Verbrauchskennwert Ihres Hauses ist sehr hoch, es gibt Handlungsbedarf. Neben der Anlagenmodernisierung werden auch zusätzliche Maßnahmen an der Gebäudehülle Einsparungen erbringen. Bei der energetischen Optimierung Ihres Gebäudes können Sie durch die Nutzung regenerativer Energien zusätzlich einen erheblichen Beitrag zur Reduzierung von Treibhausgasen leisten. Wie Sie das im Detail erreichen können, zeigt Ihnen unser Gebäude-Energie-Spar-Check.',
+'quickcheck.results.text.high' : 'Der Verbrauchskennwert Ihres Hauses ist sehr hoch, es gibt Handlungsbedarf. Neben der Anlagenmodernisierung werden auch zusätzliche Maßnahmen an der Gebäudehülle Einsparungen erbringen. Bei der energetischen Optimierung Ihres Gebäudes können Sie durch die Nutzung regenerativer Energien zusätzlich einen erheblichen Beitrag zur Reduzierung von Treibhausgasen leisten. Wie Sie das im Detail erreichen können, zeigt Ihnen unser Gebäude-Energie-Spar-Check.',
+'quickcheck.results.text.medium' : 'Der eher durchschnittliche Verbrauchskennwert Ihres Hauses weist darauf hin, dass Sie durch eine Anlagenmodernisierung Ihren Energiebedarf noch deutlich senken können. Ob zusätzlich noch Einsparungen durch Maßnahmen an Teilen der Gebäudehülle zu erwarten sind, muss im Einzelfall überprüft werden. Sie können aber durch die Nutzung regenerativer Energien einen erheblichen Beitrag zur Reduzierung von Treibhausgasen leisten. Wie Sie das im Detail erreichen können, zeigt Ihnen unser Gebäude-Energie-Spar-Check.',
+'quickcheck.results.text.low' : 'Der gute Verbrauchskennwert Ihres Hauses lässt nur geringe Einsparungen durch eine Anlagenmodernisierung oder eine Verbesserung der Gebäudedämmung erwarten. Sie können durch eine Umstellung Ihres Wärmeerzeugers auf regenerative Energien aber einen erheblichen Beitrag zur Reduzierung von Treibhausgasen leisten. Wie Sie das im Detail erreichen können, zeigt Ihnen unser Gebäude-Energie-Spar-Check.',
+'quickcheck.results.text.startEsc' : 'Jetzt den Gebäude-Energie-Spar-Check starten und konkrete Modernisierungsvorschläge erhalten.',
+'quickcheck.results.text.startEscNotes' : 'Ihre bisherigen Angaben werden automatisch im Gebäude-Energie-Spar-Check voreingestellt.',
+'quickcheck.results.button.startEsc' : 'Gebäude-Energie-Spar-Check starten',
+'esc.header' : 'Gebäudecheck',
 'esc.header.location' : 'Standort',
 'esc.question.location' : 'An welchem Ort steht ihr Gebäude?',
 'esc.question.buildingYear' : 'Wann wurde Ihr Haus erbaut?',
@@ -101,11 +112,11 @@ export const LANG_EN_TRANS = {
 'finance.subheader' : 'Hier sehen Sie die Kostenentwicklung Ihres aktuellen Gebäudes (grau). Im Vergleich dazu das modernisierte Gebäude inklusive der Investitionskosten (grün). Für einen möglichst exakten Vergleich können Sie die Werte auf der linken Seite nach Ihren Vorgaben ändern.',
 'finance.modernizeInstallation' : 'Anlagensanierung',
 
-'roofType.SADDLE' : 'Satteldach',
-'roofType.HALF_HIPPED' : 'Krüppelwalm',
-'roofType.HIPPED' : 'Walmdach',
-'roofType.FLAT' : 'Flachdach',
-'roofType.SINGLE_PITCH' : 'Pultdach',
+'roofType.SADDLE' : 'Saddle',
+'roofType.HALF_HIPPED' : 'Half hipped',
+'roofType.HIPPED' : 'Hipped',
+'roofType.FLAT' : 'Flat',
+'roofType.SINGLE_PITCH' : 'Single pitched',
 
 'installationType.CONDENSING_BOILER' : 'BRENNWERTKESSEL',
 'installationType.SOLID_FUEL_BOILER' : 'FESTSTOFFKESSEL',
@@ -115,9 +126,27 @@ export const LANG_EN_TRANS = {
 'installationType.CIRCULATION_WATER_BOILER' : 'UMLAUFWASSERERHEIZER',
 'installationType.TWO_FUEL_CHANGE_BOILER' : 'UMSTELLWECHSELBRANDKESSEL',
 
-'common.yes' : 'Jupp',
-'common.no' : 'Nö',
-'common.cancel' : 'Abbrechen',
-'common.apply' : 'Übernehmen',
-'common.more' : 'mehr...'
+'buildingType.ONE_FAMILY_HOUSE' : 'Einfamilienhaus',
+'buildingType.MULTI_FAMILY_HOUSE' : '2- bis 6-Familienhaus',
+'buildingType.NOT_LIVING_BUILDING' : 'Nicht-Wohngebäude',
+'buildingType.INDUSTRY_BUILDING' : 'Industriegebäude',
+
+'buildingLocation.DETACHED' : 'freistehend',
+'buildingLocation.CORNER' : 'Eckhaus',
+'buildingLocation.MIDDLE' : 'Mittelhaus',
+
+'energySource.HEATING_OIL' : 'Heating Oil',
+'energySource.GAS' : 'Gas',
+
+'common.yes' : 'Yes',
+'common.no' : 'No',
+'common.cancel' : 'Cancel',
+'common.apply' : 'Apply',
+'common.more' : 'more...',
+'common.persons' : 'Persons',
+'common.kwhPerYear' : 'kWh/year',
+
+'validation.required.field' : 'required field',
+
+'quickcheck.results.energyCharacteristicValue.text': 'Der für Sie ermittelte Energieverbrauchskennwert liegt bei $0$ kWh/m² pro Jahr'
 };

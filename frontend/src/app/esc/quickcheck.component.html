@@ -10,31 +10,238 @@
                             <h2>{{'quickcheck.header.goals'|translate}}</h2>
                         </div>
                         <div class="col-sm-10">
+
+                            <!-- modernizationTarget --> 
                             <div id="bb-ziele" class="form-element">
-                                <h3>{{'quickcheck.question.goals'|translate}}</h3>
-                                {{myForm.value.modernizationTarget }}
+                                <h3>{{'quickcheck.question.goals'|translate}}</h3>                                
                                 <div class="form-group">
-                                    <div [ngClass]="{'radio ui-radio': usage !== myForm.value.modernizationTarget, 'radio ui-radio checked': usage === myForm.value.modernizationTarget}"  *ngFor="let usage of usages | keys">
-                                        <label class="checked">
+                                    <div [ngClass]="{'radio ui-radio': true, 'checked': usage.value === myForm.value.modernizationTarget}"  *ngFor="let usage of usages | keys">
+                                        <label [ngClass]="{'checked' : usage.value === myForm.value.modernizationTarget}" >
                                             <input type="radio"  [value]="usage.value"  formControlName="modernizationTarget">
                                             <span>{{'quickcheck.goal.' + usage.value | translate}}</span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- includeBuildingModernization -->
+                            <div id="bb-zielemodernisieren" class="form-element no-margin-top">
+                                <div class="form-group">
+                                    <div [ngClass]="{'checkbox ui-checkbox': true, 'checked': myForm.value.includeBuildingModernization === true}">
+                                        <a class="btn-help visible-xs">
+                                            <i class="icon-info-sign"></i>
+                                        </a>
+                                        <label class="label">
+                                            <input type="checkbox" formControlName="includeBuildingModernization"/>
+                                            {{ 'quickcheck.goal6' | translate}}
+                                        </label>
+                                        <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
- <input type="checkbox" formControlName="includeBuildingModernization"/>
-                <button type="submit">Submit</button>
+ 
+                <!-- building -->
+                <div class="form-element-group">
+                    <div class="row">
+                         <div class="col-sm-2">
+                            <h2>{{'quickcheck.header.buildingtype'|translate}}</h2>
+                        </div>
+                        <div class="col-sm-10">
+
+                            <!-- buildingType -->
+                            <div id="bb-gebaeude_kategorie" class="form-element">
+                                <h3>
+                                    <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                    {{ 'quickcheck.question.buildingtype' | translate }}
+                                    <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                </h3>
+                                <div class="ui-radio-icon-group form-group">
+	
+                                    <div [ngClass]="{'checked' : myForm.value.buildingType === bt_ONE_FAMILY_HOUSE, 'radio' : true}">
+                                        <label>
+                                            <input type="radio" [value]="bt_ONE_FAMILY_HOUSE" formControlName="buildingType">
+                                            <img src="http://test.check-energiesparen.de/images/gebaeudetyp_einfamilienhaus.png">
+                                            <span>{{ 'buildingType.ONE_FAMILY_HOUSE' | translate }}</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div [ngClass]="{'checked' : myForm.value.buildingType === bt_MULTI_FAMILY_HOUSE, 'radio' : true}">
+                                        <label>
+                                            <input type="radio" [value]="bt_MULTI_FAMILY_HOUSE" formControlName="buildingType">
+                                            <img src="http://test.check-energiesparen.de/images/gebaeudetyp_mehrfamilienhaus.png">
+                                            <span>{{ 'buildingType.MULTI_FAMILY_HOUSE' | translate }}</span>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <!-- livingspace -->
+                            <div id="bb-gebaeude_wohnflaeche" class="form-element">
+                                <h3>
+                                    <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                    {{ 'quickcheck.question.livingspace' | translate }}
+                                    <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                </h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-sm-push-5 unit unit-m2 input-group">
+                                            <input class="form-control" type="number" formControlName="livingSpace">
+                                            <span class="input-group-addon">m²</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- heating -->
+                <div class="form-element-group">
+                    <div class="row">
+                         <div class="col-sm-2">
+                            <h2>{{'quickcheck.header.currentInstallationType'|translate}}</h2>
+                        </div>
+                        <div class="col-sm-10">
+                            <div id="bb-anlage_energietraeger">
+                                <h3>
+                                    <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                    {{ 'quickcheck.question.currentInstallationType' | translate }}
+                                    <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                </h3>
+
+                                 <div class="ui-radio-icon-group form-group">
+	
+                                    <div [ngClass]="{'checked' : myForm.value.energySource === es_HEATING_OIL, 'radio' : true}">
+                                        <label>
+                                            <input type="radio" [value]="es_HEATING_OIL" formControlName="energySource">
+                                            <img src="http://test.check-energiesparen.de/images/icon-oil-selected.png">
+                                            <span>{{ 'energySource.HEATING_OIL' | translate }}</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div [ngClass]="{'checked' : myForm.value.energySource === es_GAS, 'radio' : true}">
+                                        <label>
+                                            <input type="radio" [value]="es_GAS" formControlName="energySource">
+                                            <img src="http://test.check-energiesparen.de/images/icon-gas-selected.png">
+                                            <span>{{ 'energySource.GAS' | translate }}</span>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- consumption -->
+                <div class="form-element-group">
+                    <div class="row">
+                         <div class="col-sm-2">
+                            <h2>{{'quickcheck.header.consumption'|translate}}</h2>
+                        </div>
+                        <div class="col-sm-10">
+                            <!-- includeWarmWater -->
+                            <div id="bb_anlage_warmwasseraufbereitung">
+                                <h3>
+                                    <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                    {{ 'quickcheck.question.includingWater' | translate }}
+                                    <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                </h3>
+
+                                <div class="form-group">
+                                    <div [ngClass]="{'checkbox ui-checkbox': true, 'checked': myForm.value.includeWarmWater === true}">
+                                        <a class="btn-help visible-xs">
+                                            <i class="icon-info-sign"></i>
+                                        </a>
+                                        <label class="label">
+                                            <input type="checkbox" formControlName="includeWarmWater"/>
+                                            {{ 'quickcheck.input.includingWater' | translate}}
+                                        </label>
+                                        <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- numberOfPersons -->
+                            <div id="bb-gebaeude_personen">
+                                <h3>
+                                    {{ 'quickcheck.question.numberOfPersons' | translate }}
+                                </h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-sm-push-5 unit unit-m2 input-group">
+                                            <input class="form-control" type="number" formControlName="numberOfPersons" style="min-width: 60px;">
+                                            <span class="input-group-addon">{{ 'common.persons' | translate }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- consumption -->
+                            <div id="bb-anlage_verbrauch">
+                                <h3>
+                                    {{ 'quickcheck.question.currentConsumption' | translate }}
+                                </h3>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-sm-push-5 unit unit-m2 input-group">
+                                            <input class="form-control" type="number" formControlName="installationConsumption" style="min-width: 100px;">
+                                            <span class="input-group-addon">{{ 'common.kwhPerYear' | translate }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            
+                        </div>
+
+                    </div>
+                </div>
+                <div class="visible-activexxx">
+                    <div class="visible-xs">
+                        <button type="submit" class="btn btn-vitorange btn-lg btn-block btn-next-page">
+                            {{ 'quickcheck.button.showSavings' | translate}}
+                            <i class="icon-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="row hidden-xs">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-vitorange btn-lg btn-next-page">
+                                {{ 'quickcheck.button.showSavings' | translate}}
+                                <i class="icon-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--<button type="submit">{{ 'quickcheck.button.showSavings' | translate}}</button>-->
         </form>
     </div>
 </section>
 
-
+<!--
 <div *ngIf="project">
     we have project
     {{project.projectId}}
+
+    {{ myForm.value.buildingType }}
+    {{ myForm.value.modernizationTarget }}
+    {{ myForm.value.livingSpace }}
+    {{ myForm.value.energySource }}
+    {{ myForm.value.includeWarmWater }}
+    {{ myForm.value.numberOfPersons }}
+
 
     {{project.quickcheck.modernizationTarget}}
 <!--
@@ -71,10 +278,11 @@
 </form>
 -->
     
-    
+    <!--
 
 <div *ngIf="!project">
     we have <b>no</b> project
     
 </div>
 </div>
+-->

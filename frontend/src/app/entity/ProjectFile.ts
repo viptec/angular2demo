@@ -48,6 +48,7 @@ export class Building {
     upperFloorInsulation : number;
     wallInsulation : number;
     cellarInsulation : number;
+    buildingLocation : BuildingLocation;
 }
 
 export class Installation {

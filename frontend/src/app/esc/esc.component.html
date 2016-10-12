@@ -1,15 +1,128 @@
-<div>ESC
+<section id="bb-gebaeudecheck" class="section-gebaeudecheck" style="display:block;">
+    <div class="container">
+        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+            <h1>{{ 'esc.header' | translate }}</h1>
 
-    {{project.quickcheck.modernizationTarget}}
+            <!-- location -->
+            <div class="form-element-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h2>{{ 'esc.header.location' | translate }}</h2>
+                    </div>
+                    <div class="col-sm-10">
 
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
-        <label i18n>postalCode</label>
-        <input type="text" formControlName="postalCode"/>
+                        <!-- postalCode -->
+                        <div id="bb-gebaeude_ort_id" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.location' | translate }}
+                                <span class="required">({{ 'validation.required.field' | translate}})</span>
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <input class="form-control" type="text" formControlName="postalCode"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <label i18n>buildingYearOfConstruction</label>
-        <input type="text" formControlName="buildingYearOfConstruction"/>
+                        <!-- buildingYear -->
+                        <div id="bb-gebaeude_baujahr" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.buildingYear' | translate }}                                
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <select class="form-control" formControlName="buildingYearOfConstruction">
+                                        <!--<option value="">Bitte wählen</option>-->
+                                        <option value="2010">2010 - heute</option>
+                                        <option value="2000">2000 - 2009</option>
+                                        <option value="1990">1990 - 1999</option>
+                                        <option value="1980">1980 - 1989</option>
+                                        <option value="1970">1970 - 1979</option>
+                                        <option value="1960">1960 - 1969</option>
+                                        <option value="1950">1950 - 1959</option>
+                                    </select>
+                                    {{ myForm.value.buildingYearOfConstruction }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-        <button type="submit">Submit</button>
-    </form>
-</div>
+            <!-- building -->
+
+            <div class="form-element-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h2>{{ 'esc.header.building' | translate }}</h2>
+                    </div>
+                    <div class="col-sm-10">
+                        <!-- length and width -->
+                        <div id="bb-gebaeude_abmessungen" class="form-element">
+                            <h3>                                
+                                {{ 'esc.question.buildingLengthAndWidth' | translate }}
+                                <span class="required">({{ 'validation.required.field' | translate}})</span>                                                                
+                            </h3>
+                            <div class="row row-abmessungen">
+                                
+                                <!-- buildingLength -->
+                                <div class="col-xs-6 form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">{{ 'esc.input.length' | translate }}</label>
+                                        <div class="col-xs-8 input-group">
+                                            <input type="number" class="form-control" formControlName="buildingLength"/>
+                                            <span class="input-group-addon">m</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- buildingWidth -->
+                                <div class="col-xs-6 form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">{{ 'esc.input.width' | translate }}</label>
+                                        <div class="col-xs-8 input-group">
+                                            <input type="number" class="form-control" formControlName="buildingWidth"/>
+                                            <span class="input-group-addon">m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- buildingLocation -->
+                        <div id="bb-gebaeude_stellung" class="form-element">
+                            <h3>
+                                <a class="btn-help visible-xs"><i class="icon-info-sign"></i></a>
+                                {{ 'esc.question.buildingLocation' | translate }}                                
+                                <a class="btn-help hidden-xs"><i class="icon-info-sign"></i></a>
+                            </h3>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <select class="form-control" formControlName="buildingLocation">        
+                                        <option *ngFor="let bc of buildingLocations | keys" [value]="bc.value">{{'buildingLocation.' + bc.value | translate}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- roofType -->
+                        <div id="bb-gebaeude_dach" class="form-element">
+                            <h3>{{ 'esc.question.roofType' | translate }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
+         
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>

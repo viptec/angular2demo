@@ -22,6 +22,9 @@ export class EscComponent {
     public submitted: boolean;
     initialized : boolean;
 
+    buildingLocs = BuildingLocation;
+    buildingLocations: any[];
+
     subscription: Subscription;
 
 
@@ -31,7 +34,10 @@ export class EscComponent {
 
              (<FormGroup>this.myForm).setValue({
               postalCode : this.project.building.postalCode,
-              buildingYearOfConstruction : this.project.building.buildingYearOfConstruction
+              buildingYearOfConstruction : this.project.building.buildingYearOfConstruction,
+              buildingLength : this.project.building.buildingLength,
+              buildingWidth : this.project.building.buildingWidth,
+              buildingLocation : this.project.building.buildingLocation,
               
             },{ onlySelf: true });
 
@@ -45,11 +51,21 @@ export class EscComponent {
               this.initialized = true;
             }
         });
+        
+        
+        this.buildingLocations = Object.keys(this.buildingLocs).filter(enumMember=>{
+            var isValueProperty = parseInt(enumMember, 10) >= 0;                 
+            return isValueProperty ? false : true;
+        });
+
 
         // init form
         this.myForm = this._fb.group({
             postalCode : [''],
-            buildingYearOfConstruction : ['']
+            buildingYearOfConstruction : [''],
+            buildingLength : [''],
+            buildingWidth : [''],
+            buildingLocation : ['']
         });
     }
 
@@ -59,6 +75,9 @@ export class EscComponent {
 
        this.project.building.postalCode = model.postalCode;
        this.project.building.buildingYearOfConstruction = model.buildingYearOfConstruction;
+       this.project.building.buildingLength = model.buildingLength;
+       this.project.building.buildingWidth = model.buildingWidth;
+       this.project.building.buildingLocation = model.buildingLocation;
        // TODO: copy other params
        
        this.escService.calculateEsc(this.project).subscribe(r=>{
