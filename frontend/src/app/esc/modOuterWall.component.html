@@ -1,22 +1,41 @@
 <div class="{{isVisible? 'visible':'hidden'}}">
-    outer wall mods 
-    visible? {{isVisible}}
+
+    <div id="popover-aussenwand">
+        <div class="modal modal-modernisieren needsclick in" style="display:block;">
+            <div class="dialog dialog-gradient">
+                <div class="dialog-content">
+                    <div class="inner">
+                        <h3>{{'modernize.outerWall.header' | translate }}</h3>
+                        <a class="btn-help popover-daemmung"
+                            data-content="Häufigste Art bei der Sanierung der Außenwand ist das Wärmedämmverbundsystem. Das Gebäude wird dabei mit Polystyrol- oder Mineralfaserdämmplatten eingehüllt. Als ca.-Richtwert für den Mindestwärmeschutz gilt eine Dämmstoffstärke von 12 cm (WLG 035). Für den optimierten Wärmeschutz werden Dämmstoffstärken zwischen 16 und 32 cm (WLG 035) benötigt. Eine größere Dämmstoffstärke bedeutet in der Regel eine bessere Wärmedämmung."
+                            data-placement="bottom" data-trigger="hover click" data-original-title="" title="">
+                            <i class="icon-info-sign"></i>
+                        </a>
+
+
+                        <form [formGroup]="myForm" novalidate (ngSubmit)="preview(myForm.value, myForm.valid)">
+                                <label>current</label>
+                                <input type="text" formControlName="outerWallCurrent"/>
+
+                                <label>future</label>
+                                <input type="text" formControlName="outerWallFuture"/>
+
+                                <label>investments</label>
+                                <input type="text" formControlName="investments"/>
+
+                                <!--<button type="submit">Submit</button>-->
+                        </form>
+
+                        <button id="modouterwall_close" (click)="closeDialog()">close</button>
+                        <button id="modouterwall_apply" (click)="applyDialog()">apply</button>
+                        <savings mode="outerWall"></savings>
+
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
 
    
-    <form [formGroup]="myForm" novalidate (ngSubmit)="preview(myForm.value, myForm.valid)">
-        <label>current</label>
-        <input type="text" formControlName="outerWallCurrent"/>
-
-        <label>future</label>
-        <input type="text" formControlName="outerWallFuture"/>
-
-        <label>investments</label>
-        <input type="text" formControlName="investments"/>
-
-        <!--<button type="submit">Submit</button>-->
-    </form>
-
-    <button id="modouterwall_close" (click)="closeDialog()">close</button>
-    <button id="modouterwall_apply" (click)="applyDialog()">apply</button>
-    <savings mode="outerWall"></savings>
+   
 </div>

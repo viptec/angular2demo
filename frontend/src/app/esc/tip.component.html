@@ -1,0 +1,40 @@
+<div class="tip-{{mode}} tip {{tip}} tip-sanierung tip-enabled tip-edited tip-ok" style="display: block;">
+
+    <!--
+[ngClass]="{ 'tip-heating' : 'heating' === mode,
+'tip-solar' : 'solar' === mode,
+'tip-roof' : 'roof' === mode,
+'tip-upperFloor' : 'upperFloor' === mode,
+'tip-outerWall' : 'outerWall' === mode,
+'tip-cellar' : 'cellar' === mode,
+'tip': true, 
+'tip-sanierung': true, 
+'tip-enabled': true, 
+'tip-edited' : true, 
+'tip-ok': true}"
+-->
+
+<!--
+    
+    -->
+    <div class="icon status icon-ok"></div>
+    <div class="arrow"></div>
+    <div class="tip-inner" (click)="modernize()">
+        <div class="title">
+            <div class="inner">{{ 'tip.' + mode | translate}}</div>
+        </div>
+        <div class="changes">
+            <div class="inner" *ngIf="!modSelected">
+                <p>{{'tip.select.' + mode | translate}}
+                    <i class="icon-chevron-right"></i>
+                </p>
+            </div>
+            <div class="inner" *ngIf="modSelected">
+                
+                <a class="icon icon-trash btn-remove" (click)="trash()"></a>
+                <p>{{ innerText }}</p>
+                <div class="investitionskosten"><span class="inner">{{ investments }}</span></div>
+            </div>
+        </div>
+    </div>
+</div>

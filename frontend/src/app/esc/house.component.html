@@ -1,0 +1,126 @@
+<div class="clearfix haus-container">
+    
+    <div id="haus" class="haus" *ngIf="project">
+        {{project.projectId}}
+            <img src="http://test.check-energiesparen.de/images/house/bg-_-_-_-1.png" style="z-index: 1;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=FLACH-EINFAMILIENHAUS-_-_-22.png" style="z-index: 22;" *ngIf="project.building.roofType === 'FLAT'"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=KRUEPPELWALM-EINFAMILIENHAUS-_-_-26.png" style="z-index: 26;" *ngIf="project.building.roofType === 'HALF_HIPPED'"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=PULT-EINFAMILIENHAUS-_-_-31.png" style="z-index: 31;" *ngIf="project.building.roofType === 'SINGLE_PITCH'"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=SATTEL-EINFAMILIENHAUS-_-_-17.png" style="z-index: 17;" *ngIf="project.building.roofType === 'SADDLE'"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=WALM-EINFAMILIENHAUS-_-_-36.png" style="z-index: 36; " *ngIf="project.building.roofType === 'HIPPED'"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-EINFAMILIENHAUS-FLACH-_-23.png" style="z-index: 23; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-EINFAMILIENHAUS-KRUEPPELWALM-_-28.png" style="z-index: 28; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-EINFAMILIENHAUS-PULT-_-33.png" style="z-index: 33; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-EINFAMILIENHAUS-SATTEL-_-19.png" style="z-index: 19; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-EINFAMILIENHAUS-WALM-_-38.png"
+                 style="z-index: 38; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/erdgeschoss-EINFAMILIENHAUS-_-FALSE-10.png" style="z-index: 10; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/erdgeschoss-EINFAMILIENHAUS-_-TRUE-9.png" style="z-index: 9;"/>
+            <img src="http://test.check-energiesparen.de/images/house/gebaeude_daemmung_staerke_neu=_-EINFAMILIENHAUS-_-_-16.png"
+                 style="z-index: 16; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/keller=true-EINFAMILIENHAUS-_-_-2.png" style="z-index: 2;" *ngIf="project.building.hasCellar && project.building.buildingType === 'ONE_FAMILY_HOUSE'"/>
+            <img src="http://test.check-energiesparen.de/images/house/keller_daemmung_staerke_neu=_-EINFAMILIENHAUS-_-_-3.png"
+                 style="z-index: 3; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-EINFAMILIENHAUS-KRUEPPELWALM-_-27.png" style="z-index: 27;" *ngIf="project.buildingMods.upperFloorInsulation >0 && project.building.buildingType === 'ONE_FAMILY_HOUSE' && project.building.roofType === 'HALF_HIPPED'"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-EINFAMILIENHAUS-PULT-_-32.png" style="z-index: 32;" *ngIf="project.buildingMods.upperFloorInsulation >0 && project.building.buildingType === 'ONE_FAMILY_HOUSE' && project.building.roofType === 'SINGLE_PITCH'"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-EINFAMILIENHAUS-SATTEL-_-18.png" style="z-index: 18;" *ngIf="project.buildingMods.upperFloorInsulation >0 && project.building.buildingType === 'ONE_FAMILY_HOUSE' && project.building.roofType === 'SADDLE'"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-EINFAMILIENHAUS-WALM-_-37.png" style="z-index: 37;" *ngIf="project.buildingMods.upperFloorInsulation >0 && project.building.buildingType === 'ONE_FAMILY_HOUSE' && project.building.roofType === 'HIPPED'"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-EINFAMILIENHAUS-FLACH-_-25.png"
+                 style="z-index: 25; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-EINFAMILIENHAUS-KRUEPPELWALM-_-30.png"
+                 style="z-index: 30; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-EINFAMILIENHAUS-PULT-_-35.png" style="z-index: 35; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-EINFAMILIENHAUS-SATTEL-_-21.png"
+                 style="z-index: 21; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-EINFAMILIENHAUS-WALM-_-40.png" style="z-index: 40; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-EINFAMILIENHAUS-FLACH-_-24.png"
+                 style="z-index: 24; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-EINFAMILIENHAUS-KRUEPPELWALM-_-29.png"
+                 style="z-index: 29; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-EINFAMILIENHAUS-PULT-_-34.png"
+                 style="z-index: 34; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-EINFAMILIENHAUS-SATTEL-_-20.png"
+                 style="z-index: 20; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-EINFAMILIENHAUS-WALM-_-39.png"
+                 style="z-index: 39; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=FLACH-MEHRFAMILIENHAUS-_-_-14.png" style="z-index: 14; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=KRUEPPELWALM-MEHRFAMILIENHAUS-_-_-18.png"
+                 style="z-index: 18; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=PULT-MEHRFAMILIENHAUS-_-_-23.png" style="z-index: 23; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=SATTEL-MEHRFAMILIENHAUS-_-_-9.png" style="z-index: 9; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach=WALM-MEHRFAMILIENHAUS-_-_-28.png" style="z-index: 28; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-FLACH-_-15.png"
+                 style="z-index: 15; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-KRUEPPELWALM-_-20.png"
+                 style="z-index: 20; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-PULT-_-25.png"
+                 style="z-index: 25; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-SATTEL-_-11.png"
+                 style="z-index: 11; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/dach_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-WALM-_-30.png"
+                 style="z-index: 30; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/erdgeschoss-MEHRFAMILIENHAUS-_-FALSE-6.png" style="z-index: 6; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/erdgeschoss-MEHRFAMILIENHAUS-_-TRUE-5.png" style="z-index: 5; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/gebaeude_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-_-_-8.png"
+                 style="z-index: 8; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/keller=true-MEHRFAMILIENHAUS-_-_-2.png" style="z-index: 2; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/keller_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-_-_-3.png"
+                 style="z-index: 3; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-KRUEPPELWALM-_-19.png"
+                 style="z-index: 19; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-PULT-_-24.png"
+                 style="z-index: 24; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-SATTEL-_-10.png"
+                 style="z-index: 10; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/og_daemmung_staerke_neu=_-MEHRFAMILIENHAUS-WALM-_-29.png"
+                 style="z-index: 29; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-MEHRFAMILIENHAUS-FLACH-_-17.png"
+                 style="z-index: 17; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-MEHRFAMILIENHAUS-KRUEPPELWALM-_-22.png"
+                 style="z-index: 22; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-MEHRFAMILIENHAUS-PULT-_-27.png"
+                 style="z-index: 27; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-MEHRFAMILIENHAUS-SATTEL-_-13.png"
+                 style="z-index: 13; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER-MEHRFAMILIENHAUS-WALM-_-32.png"
+                 style="z-index: 32; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-MEHRFAMILIENHAUS-FLACH-_-16.png"
+                 style="z-index: 16; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-MEHRFAMILIENHAUS-KRUEPPELWALM-_-21.png"
+                 style="z-index: 21; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-MEHRFAMILIENHAUS-PULT-_-26.png"
+                 style="z-index: 26; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-MEHRFAMILIENHAUS-SATTEL-_-12.png"
+                 style="z-index: 12; display: none;"/>
+            <img src="http://test.check-energiesparen.de/images/house/solar=WASSER_HEIZUNG-MEHRFAMILIENHAUS-WALM-_-31.png"
+                 style="z-index: 31; display: none;"/>
+        </div>
+
+
+        <div id="haus-actions" *ngIf="project">
+
+            <!--
+             <div class="tip-solar tip bottom-right tip-anlage tip-enabled tip-edited" style="display: block;">
+                <div class="icon status icon-edit"></div>
+                <div class="arrow"></div>
+                <div class="tip-inner">
+                    <div class="title">
+                        <div class="inner">Solaranlage</div>
+                    </div>
+                    <div class="changes">
+                        <div class="inner"><p>Anlage wählen <i class="icon-chevron-right"></i></p></div>
+                    </div>
+                </div>
+            </div>
+            -->
+            <tip mode='heating' tip='bottom-right'></tip>
+            <tip mode='solar' tip='bottom-right'></tip>
+            <tip mode='roof' tip='bottom-left'></tip>
+            <tip mode='upperFloor' tip='bottom-right' *ngIf="project.building.roofType !== 'FLAT'"></tip>
+            <tip mode='outerWall' tip='top-left'></tip>
+            <tip mode='cellar' tip='top-left'></tip>
+            <tip mode='windows' tip='bottom-left'></tip>
+
+
+        </div>
+</div>

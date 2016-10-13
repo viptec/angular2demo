@@ -77,13 +77,16 @@ export const LANG_DE_TRANS = {
 'modernize.upperfloor.hint' : 'Dämmung wählen',
 'modernize.windows' : 'Fenster',
 'modernize.windows.hint' : 'Verglasung wählen',
-'modernize.outerwall' : 'Außenwand',
-'modernize.outerwall.hint' : 'Dämmung wählen',
+'modernize.outerWall' : 'Außenwand',
+'modernize.outerWall.hint' : 'Dämmung wählen',
 'modernize.installation' : 'Heizung',
 'modernize.cellar' : 'Kellerdecke',
 'modernize.cellar.hint' : 'Dämmung wählen',
 
+
 'modernize.cellar.header' : 'Welche Dämmung hat Ihre Außenwand?',
+
+'modernize.outerWall.header' : 'Welche Dämmung hat Ihre Außenwand?',
 'modernize.cellar.current' : 'Dämmung (aktuell)',
 'modernize.cellar.future' : 'Dämmung (künftig)',
 
@@ -106,6 +109,22 @@ export const LANG_DE_TRANS = {
 'savings.consumption' : 'Wärmeverbrauch',
 'savings.co2' : 'CO2-Emissionen',
 'savings.erplabel' : 'Energieeffizienzklasse',
+
+'tip.upperFloor' : 'Oberschoss',
+'tip.solar' : 'Solaranlage',
+'tip.roof' : 'Dach',
+'tip.outerWall' : 'Außenwand',
+'tip.cellar' : 'Kellerdecke',
+'tip.windows' : 'Fenster',
+'tip.heating' : 'Heizung',
+'tip.insulation' : 'Dämmung',
+'tip.select.upperFloor' : 'Dämmung wählen',
+'tip.select.solar' : 'Anlage wählen',
+'tip.select.roof' : 'Dämmung wählen',
+'tip.select.outerWall' : 'Dämmung wählen',
+'tip.select.cellar' : 'Dämmung wählen',
+'tip.select.windows' : 'Verglasung wählen',
+'tip.select.heating' : 'Anlage wählen',
 
 
 'finance.header' : 'Kosten sparen durch Modernisierung',

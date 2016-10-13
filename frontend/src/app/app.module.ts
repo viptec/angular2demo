@@ -18,6 +18,8 @@ import { QuickCheckResultComponent }   from './esc/quickcheckresult.component';
 import { ModernizationComponent } from './esc/modernization.component';
 import { ModOuterWallComponent } from './esc/modOuterWall.component' ;
 import { SavingsComponent } from './esc/savings.component';
+import { HouseComponent } from './esc/house.component';
+import { TipComponent } from './esc/tip.component';
 
 
 // services
@@ -52,6 +54,8 @@ import { TranslatePipe } from './util/translate.pipe';
                     ModernizationComponent,
                     ModOuterWallComponent,
                     SavingsComponent,
+                    HouseComponent,
+                    TipComponent,
                     KeysPipe,
                     TranslatePipe
                 ],
