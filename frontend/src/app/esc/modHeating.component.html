@@ -1,22 +1,81 @@
 <div class="{{isVisible? 'visible':'hidden'}}">
-    outer wall mods 
-    visible? {{isVisible}}
+
+    <div id="popover-heizung">
+        <div class="modal modal-modernisieren needsclick in" style="display:block;">
+            <div class="dialog dialog-gradient">
+            <form [formGroup]="myForm" novalidate (ngSubmit)="preview(myForm.value, myForm.valid)">
+                <div class="dialog-content">
+                    <div class="inner">
+                        <h3>{{'modernize.outerWall.header' | translate }}</h3>
+                        <a class="btn-help popover-daemmung"
+                            data-content="Häufigste Art bei der Sanierung der Außenwand ist das Wärmedämmverbundsystem. Das Gebäude wird dabei mit Polystyrol- oder Mineralfaserdämmplatten eingehüllt. Als ca.-Richtwert für den Mindestwärmeschutz gilt eine Dämmstoffstärke von 12 cm (WLG 035). Für den optimierten Wärmeschutz werden Dämmstoffstärken zwischen 16 und 32 cm (WLG 035) benötigt. Eine größere Dämmstoffstärke bedeutet in der Regel eine bessere Wärmedämmung."
+                            data-placement="bottom" data-trigger="hover click" data-original-title="" title="">
+                            <i class="icon-info-sign"></i>
+                        </a>
+
+
+                       
+                                <h5>{{ 'modernize.outerWall.current' | translate }}</h5>
+                                <div class="row">
+                                    <div class="col-xs-5 cos-xs-push-7 input-group">
+                                        <input class="form-control" type="number" formControlName="outerWallCurrent"/>
+                                        <span class="input-group-addon" id="unit-today">cm</span>
+                                    </div>
+
+                                    <div class="col-xs-7 col-xs-pull-5 slider-ct">
+                                        TODO:slider
+                                    </div>
+                                </div>
+                                
+
+                                <h5>{{ 'modernize.outerWall.future' | translate }}</h5>
+
+                                <div class="row">
+                                    <div class="col-xs-5 cos-xs-push-7 input-group">
+                                        <input class="form-control" type="number" formControlName="outerWallFuture"/>
+                                        <span class="input-group-addon" id="unit-today">cm</span>
+                                    </div>
+
+                                    <div class="col-xs-7 col-xs-pull-5 slider-ct">
+                                        TODO:slider
+                                    </div>
+                                </div>
+
+                        
+
+                        
+                        
+
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <div class="kostenwrapper" *ngIf="showInvestments">
+                        <div class="kosten-input">
+                            <div class="input-group">
+                                <input class="form-control costs-value" type="number" formControlName="investments"/>
+                                <span class="input-group-addon" id="unit-costs">€</span>
+                            </div>
+                        </div>
+                        <div class="kosten-spanne" style="display:block;">
+                            <strong>{{ 'modernize.investmentCosts' | translate }}</strong>
+                            <span class="costs" *ngIf="escResult && escResult.selectedHeaterPriceRange">∅ {{ escResult.selectedHeaterPriceRange.lowerLimit}} - {{ escResult.selectedHeaterPriceRange.upperLimit}} €</span>
+                            <span class="cost-hint"></span>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-default2 btn-abort" (click)="closeDialog()">{{ 'common.cancel' | translate }}</button>
+                        <button class="btn btn-vitorange btn-save" (click)="applyDialog()">{{ 'common.apply' | translate }}</button>
+                    </div>
+                </div>
+
+                <div class="dialog-sidebar sidebar-einsparung">
+                    <savings mode="outerWall"></savings>
+                </div>
+                </form>
+            </div>                
+        </div>
+    </div>
 
    
-    <form [formGroup]="myForm" novalidate (ngSubmit)="preview(myForm.value, myForm.valid)">
-        <label>current</label>
-        <input type="text" formControlName="outerWallCurrent"/>
-
-        <label>future</label>
-        <input type="text" formControlName="outerWallFuture"/>
-
-        <label>investments</label>
-        <input type="text" formControlName="investments"/>
-
-        <!--<button type="submit">Submit</button>-->
-    </form>
-
-    <button id="modouterwall_close" (click)="closeDialog()">close</button>
-    <button id="modouterwall_apply" (click)="applyDialog()">apply</button>
-    <savings mode="outerWall"></savings>
+   
 </div>

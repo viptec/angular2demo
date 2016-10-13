@@ -138,6 +138,16 @@ export const LANG_DE_TRANS = {
 'finance.subheader' : 'Hier sehen Sie die Kostenentwicklung Ihres aktuellen Gebäudes (grau). Im Vergleich dazu das modernisierte Gebäude inklusive der Investitionskosten (grün). Für einen möglichst exakten Vergleich können Sie die Werte auf der linken Seite nach Ihren Vorgaben ändern.',
 'finance.modernizeInstallation' : 'Anlagensanierung',
 
+
+'report.header' : 'Projektbericht',
+'report.description' : 'Im Projektbericht werden Ihre Eingaben und Ergebnisse nochmal übersichtlich zusammengefasst. Die Informationen können Sie bequem ausdrucken.',
+'report.building' : 'Ihr Gebäude',
+'report.building.description' : 'Die Übersicht zeigt nochmals die von Ihnen eingegebenen Daten Ihres Gebäudes. Auf diesen Daten basiert die Berechnung des Energiebedarfs und die Empfehlung für eine mögliche Modernisierung.',
+'report.building.location' : 'Standort',
+'report.building.building' : 'Gebäude',
+'report.building.installation' : 'Heizsysteme',
+
+
 'roofType.SADDLE' : 'Satteldach',
 'roofType.HALF_HIPPED' : 'Krüppelwalm',
 'roofType.HIPPED' : 'Walmdach',

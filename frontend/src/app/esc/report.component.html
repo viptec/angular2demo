@@ -1,0 +1,29 @@
+<section id="bb-zusammenfassung" class="section-zusammenfassung" style="display: block;" >
+    <div class="container" *ngIf="project && showReport">
+       <h1>{{ 'report.header' | translate }}</h1> 
+       <h2>{{ 'report.building' | translate }}</h2>
+       <p>{{ 'report.building.description' | translate }}</p>
+
+       <table class="table table-condensed table-condensed">
+           <tbody>
+               <tr>
+                   <td>{{ 'report.building.location' | translate}}</td>
+                   <td>{{ project.building.postalCode }} TODO: City </td>
+               </tr>
+               <tr>
+                   <td>{{ 'report.building.building' | translate }}</td>
+                   <td>
+                       {{ buildingDescription }}
+                       <br/>
+                       {{ buildingDescription2 }}
+                   </td>
+               </tr>
+
+           </tbody>
+       </table>
+       Demo
+{{project | json}}
+    </div>
+
+
+</section>

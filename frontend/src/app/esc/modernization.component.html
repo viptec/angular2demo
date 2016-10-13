@@ -51,6 +51,28 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- button show project report -->
+        <div class="ct-next-button" *ngIf="showReportButton">
+            <div class="visible-xs">
+                <button tabindex="100" class="btn btn-vitorange btn-lg btn-block btn-next-page" (click)="showReport()">
+                    {{ 'report.header' | translate }}
+                    <i class="icon-chevron-down"></i>
+                </button>
+            </div>
+            <p class="hidden-xs">
+                <button tabindex="100" class="btn btn-vitorange btn-lg btn-next-page" (click)="showReport()">
+                    {{ 'report.header' | translate }}
+                    <i class="icon-chevron-down"></i>
+                </button>
+            </p>
+            <div style="padding-left: 0px;" class="col-md-7">
+                <p>{{ 'report.description' | translate }}</p>
+            </div>
+        </div>
+
+
     </div>
 </section>
 <div class="{{escResult? 'visible':'hidden'}}">
@@ -62,5 +84,6 @@
     <button id="modouterwall" (click)="modernize('outerWall')">modouterwall</button>
     </div>
     <modouterwall></modouterwall>
+    <modheating></modheating>
     
 </div>

@@ -17,9 +17,11 @@ import { QuickCheckComponent }   from './esc/quickcheck.component';
 import { QuickCheckResultComponent }   from './esc/quickcheckresult.component';
 import { ModernizationComponent } from './esc/modernization.component';
 import { ModOuterWallComponent } from './esc/modOuterWall.component' ;
+import { ModHeatingComponent } from './esc/modHeating.component';
 import { SavingsComponent } from './esc/savings.component';
 import { HouseComponent } from './esc/house.component';
 import { TipComponent } from './esc/tip.component';
+import { ReportComponent } from './esc/report.component';
 
 
 // services
@@ -27,6 +29,7 @@ import { ProjectStartService }   from './start/start.service';
 import { QuickCheckService } from './service/quickcheck.service';
 import { EscService } from './service/esc.service';
 import { ModernizationService } from './service/modernization.service';
+import { ReportService } from './service/report.service';
 
 // utils
 import { KeysPipe } from './util/enumpipe';
@@ -53,9 +56,11 @@ import { TranslatePipe } from './util/translate.pipe';
                     QuickCheckResultComponent,
                     ModernizationComponent,
                     ModOuterWallComponent,
+                    ModHeatingComponent,
                     SavingsComponent,
                     HouseComponent,
                     TipComponent,
+                    ReportComponent,
                     KeysPipe,
                     TranslatePipe
                 ],
@@ -63,6 +68,7 @@ import { TranslatePipe } from './util/translate.pipe';
                     QuickCheckService,
                     EscService,
                     ModernizationService,
+                    ReportService,
                     TRANSLATION_PROVIDERS,
                     TranslateService,
                     {provide: LocationStrategy, useClass: HashLocationStrategy}                                        

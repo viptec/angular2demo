@@ -11,10 +11,10 @@ import { EscService, EscResult, EscResultWrapper } from '../service/esc.service'
 import { ModernizationComponent } from './modernization.component';
 
 @Component({
-    selector: 'modouterwall',
-    templateUrl: '../../app/esc/modOuterWall.component.html'
+    selector: 'modheating',
+    templateUrl: '../../app/esc/modHeating.component.html'
 })
-export class ModOuterWallComponent {
+export class ModHeatingComponent {
 
     private parentComponent : ModernizationComponent;
     public isVisible: boolean = false;
@@ -23,6 +23,8 @@ export class ModOuterWallComponent {
     public submitted: boolean;
     public projectCopy: ProjectFile;
     public project: ProjectFile;
+    public showInvestments : boolean = false;
+
     subscriptionModernization: Subscription;
 
     escResult : EscResult;
@@ -32,7 +34,7 @@ export class ModOuterWallComponent {
         this.parentComponent = parent;
         this.subscriptionModernization = modernizationService.modOpened$.subscribe(m => {
             console.log(m);
-            if ("outerWall" === m){
+            if ("heating" === m){
                 this.isVisible = true;
             }            
             else {
@@ -51,7 +53,7 @@ export class ModOuterWallComponent {
                 },{ onlySelf: true });
 
                 if (!this.initialized){
-                     this.myForm.valueChanges.debounceTime(400).subscribe(data => {                        
+                     this.myForm.valueChanges.debounceTime(400).subscribe(data => {                                               
                         //if (this.submitted){
                             this.preview(data, true);
                         //}
@@ -97,7 +99,12 @@ export class ModOuterWallComponent {
     }
 
     preview(model:ModOuterWallForm, isValid: boolean){
-        console.log('XXXX preview', model);
+        if (model.outerWallFuture > 0){
+            this.showInvestments = true;
+        }
+        else {
+            this.showInvestments = false;
+        }
         this.projectCopy.buildingMods.wallInsulation = model.outerWallFuture;
         this.projectCopy.building.wallInsulation = model.outerWallCurrent;
         this.projectCopy.finance.wallInsulation = model.investments;
@@ -107,7 +114,7 @@ export class ModOuterWallComponent {
             this.escResult = r;
             let escWrapper = new EscResultWrapper();
             escWrapper.escResult = r;
-            escWrapper.mode = "outerWall";
+            escWrapper.mode = "heating";
             this.escService.updateEsc(escWrapper);
         });
     }

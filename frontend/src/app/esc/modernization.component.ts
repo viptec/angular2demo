@@ -8,6 +8,7 @@ import { ProjectFile } from '../entity/ProjectFile';
 import { ProjectStartService} from '../start/start.service';
 import { ModernizationService } from '../service/modernization.service';
 import { EscService, EscResult } from '../service/esc.service';
+import { ReportService } from '../service/report.service';
 
 @Component({
     selector: 'modernization',
@@ -24,8 +25,9 @@ export class ModernizationComponent {
     public project: ProjectFile;
 
     public modVisible : string;
+    public showReportButton : boolean = true;
 
-    constructor(private projectStartService: ProjectStartService, private escService: EscService, private modernizationService: ModernizationService){
+    constructor(private projectStartService: ProjectStartService, private escService: EscService, private modernizationService: ModernizationService, private reportService : ReportService){
 
         this.subscription = escService.escUpdateded$.subscribe(r => {
             console.log('ModernizationComponent escUpdated',r);
@@ -58,6 +60,10 @@ export class ModernizationComponent {
         this.modernizationService.showModernization(m);
     }
     
+    showReport(){
+        this.reportService.showReport('');
+        this.showReportButton = false;
+    }
     
     ngOnDestroy() {
         // prevent memory leak when component destroyed
