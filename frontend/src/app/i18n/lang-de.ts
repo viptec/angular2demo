@@ -85,10 +85,12 @@ export const LANG_DE_TRANS = {
 
 
 'modernize.cellar.header' : 'Welche Dämmung hat Ihre Außenwand?',
-
-'modernize.outerWall.header' : 'Welche Dämmung hat Ihre Außenwand?',
 'modernize.cellar.current' : 'Dämmung (aktuell)',
 'modernize.cellar.future' : 'Dämmung (künftig)',
+
+'modernize.outerWall.header' : 'Welche Dämmung hat Ihre Außenwand?',
+'modernize.outerWall.current' : 'Dämmung (aktuell)',
+'modernize.outerWall.future' : 'Dämmung (künftig)',
 
 'modernize.installation.header' : 'Welches Heizsystem möchten Sie künftig gerne verwenden?',
 'modernize.installation.useAsAdditionalInstallation' : 'Zusätzlich zur Altanlage betreiben',
@@ -109,6 +111,11 @@ export const LANG_DE_TRANS = {
 'savings.consumption' : 'Wärmeverbrauch',
 'savings.co2' : 'CO2-Emissionen',
 'savings.erplabel' : 'Energieeffizienzklasse',
+'savings.electricityCosts' : 'Stromkosten',
+'savings.funding' : 'Einspeisung und Förderung',
+'savings.erplabel.currentInstallation' : 'Aktuelles Heiz- und Solarsystem',
+'savings.erplabel.showLabel' : 'Label-Vorschau anzeigen',
+
 
 'tip.upperFloor' : 'Oberschoss',
 'tip.solar' : 'Solaranlage',

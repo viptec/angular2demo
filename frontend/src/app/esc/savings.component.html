@@ -1,6 +1,80 @@
-<div>
-    savings {{ mode }}
+<div>    
     <div *ngIf="escResult">
+        <div class="sidebar-einsparung-content">
+                    <h2 class="first">{{ 'savings.header' | translate }}</h2>
+
+                    <div class="highlight einsparung-highlight">
+                        <div class="intro">{{ 'savings.twentyYearSavingPotential' | translate }}</div>
+                        <div class="sum" data-value="0"> xxx €</div>
+                    </div>
+
+                    <h2>{{ 'savings.header.firstyear' | translate }}</h2>
+
+                    <dl class="waermekosten">
+                        <dt>{{ 'savings.costs' | translate }}</dt>
+                        <dd>
+                            <div class="sum">-xxx €</div>
+                            <div class="percent" data-value="0">yy%</div>
+                        </dd>
+                    </dl>
+
+                    <dl class="stromkosten" style="display: none;">
+                        <dt>{{ 'savings.electricityCosts' | translate }}</dt>
+                        <dd>
+                            <div class="sum"></div>
+                            <div class="percent" data-value="0">0%</div>
+                        </dd>
+                    </dl>
+
+                    <dl class="foerderung" style="display: none;">
+                        <dt>{{ 'savings.funding' | translate }}</dt>
+                        <dd>
+                            <div class="sum"></div>
+                            <div class="percent" data-value="0"></div>
+                        </dd>
+                    </dl>
+
+                    <dl class="waermeverbrauch">
+                        <dt>{{ 'savings.costs' | translate }}</dt>
+                        <dd>
+                            <div class="sum">-xxx kWh</div>
+                            <div class="percent" data-value="0">93%</div>
+                        </dd>
+                    </dl>
+
+                    <dl class="co2emission">
+                        <dt>
+                            {{ 'savings.co2' | translate }}
+                        </dt>
+                        <dd>
+                            <div class="sum">-xxx kg</div>
+                            <div class="percent" data-value="0">81%</div>
+                        </dd>
+                    </dl>
+
+                    <div class="erp" style="opacity: 1;">
+                        <h2>{{ 'savings.erplabel' | translate }}</h2>
+
+                        <p class="no-erp" style="display: none;">ErP-Label für Biomasse ab 01.04.2017</p>
+
+                        <dl class="energieeffizienz">
+                            <dt>
+                                <span class="title">{{ 'savings.erplabel.currentInstallation' | translate }}</span>
+                                <a class="btn-label-vorschau" data-original-title="" title="">
+                                    <span>{{ 'savings.erplabel.showLabel' | translate }}</span>
+                                </a>
+                            </dt>
+                            <dd>
+                                <div class="efficiency-label efficiency-label--App">
+                                    <div class="efficiency-label__text">A++</div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+
+        </div>
+        savings {{ mode }}
         {{ escResult.savingsResult | json}}
     </div>
 </div>

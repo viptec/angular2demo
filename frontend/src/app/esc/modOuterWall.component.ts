@@ -23,6 +23,8 @@ export class ModOuterWallComponent {
     public submitted: boolean;
     public projectCopy: ProjectFile;
     public project: ProjectFile;
+    public showInvestments : boolean = false;
+
     subscriptionModernization: Subscription;
 
     escResult : EscResult;
@@ -51,7 +53,7 @@ export class ModOuterWallComponent {
                 },{ onlySelf: true });
 
                 if (!this.initialized){
-                     this.myForm.valueChanges.debounceTime(400).subscribe(data => {                        
+                     this.myForm.valueChanges.debounceTime(400).subscribe(data => {                                               
                         //if (this.submitted){
                             this.preview(data, true);
                         //}
@@ -97,7 +99,12 @@ export class ModOuterWallComponent {
     }
 
     preview(model:ModOuterWallForm, isValid: boolean){
-        console.log('XXXX preview', model);
+        if (model.outerWallFuture > 0){
+            this.showInvestments = true;
+        }
+        else {
+            this.showInvestments = false;
+        }
         this.projectCopy.buildingMods.wallInsulation = model.outerWallFuture;
         this.projectCopy.building.wallInsulation = model.outerWallCurrent;
         this.projectCopy.finance.wallInsulation = model.investments;
